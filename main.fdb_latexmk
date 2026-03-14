@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1772621617.3299 "c:/Users/pablo/OneDriveUCM/Universidad/Topologia/Apuntes/main.tex" "main.pdf" "main" 1772621625.7948 0
-  "C:/Users/pablo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1771342264 81245 e934491651270ee8e50db9289c70f8a4 ""
+["pdflatex"] 1773501268.43946 "c:/Users/pablo/OneDriveUCM/Universidad/Topologia/Apuntes/main.tex" "main.pdf" "main" 1773501280.18166 0
+  "C:/Users/pablo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1773079578 81245 e934491651270ee8e50db9289c70f8a4 ""
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1744013569 12668 34cd0b7211141c24d914262480788b27 ""
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/tfm/public/mathabx/matha10.tfm" 1744013534 1372 84a1ef28ab0d13263326e8d7d854aaa0 ""
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/tfm/public/mathabx/matha12.tfm" 1744962932 1380 ceb7b5923e3abb0aafa2e35608b22d77 ""
@@ -341,12 +341,13 @@
   "C:/Users/pablo/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Preamble.tex" 1758016749 11367 60276e4726061d3cee4e911b74ebcb9e ""
   "Theory/1 - Compacidad.tex" 1772621609 50750 bdc58e56033ae48432333b8dcf5bb1e8 ""
-  "Theory/Theory.tex" 1770129451 43 6a8d6464e1319f2a7b36dc706d46da64 ""
+  "Theory/2 - Conexidad.tex" 1773501255 19500 77e2efaafa3719495030435ba8e8df98 ""
+  "Theory/Theory.tex" 1773497230 85 022d80ada9157323ac125561eabea466 ""
   "c:/Users/pablo/OneDriveUCM/Universidad/Topologia/Apuntes/main.tex" 1770129198 677 6539514073ee74c53aae2ceab10afec9 ""
-  "main.aux" 1772621625 16378 63bcb08358eed61f9bb931d0a6271445 "pdflatex"
-  "main.out" 1772621625 523 88d3ced7d107d09a9d788dba1c8f3a8f "pdflatex"
+  "main.aux" 1773501279 30515 07d8d8c424557a53ca01b847ab4f4f61 "pdflatex"
+  "main.out" 1773501279 1431 dca1fec88cffc4144114fbf4c14e79e1 "pdflatex"
   "main.tex" 1770129198 677 6539514073ee74c53aae2ceab10afec9 ""
-  "main.toc" 1772621625 347 af2798d55da53192d8063cb51215e882 "pdflatex"
+  "main.toc" 1773501279 850 a58ba1102e21677c10c3ec7da8af4c0e "pdflatex"
   (generated)
   "main.aux"
   "main.log"

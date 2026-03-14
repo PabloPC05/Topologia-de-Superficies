@@ -588,6 +588,9 @@ INPUT C:\Users\pablo\AppData\Local\MiKTeX\fonts\tfm\public\mathabx\matha7.tfm
 INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx9.tfm
 INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbxti10.tfm
 INPUT C:\Users\pablo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1095.tfm
+INPUT .\Theory\2 - Conexidad.tex
+INPUT .\Theory\2 - Conexidad.tex
+INPUT Theory\2 - Conexidad.tex
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
