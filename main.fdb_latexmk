@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1773501268.43946 "c:/Users/pablo/OneDriveUCM/Universidad/Topologia/Apuntes/main.tex" "main.pdf" "main" 1773501280.18166 0
+["pdflatex"] 1773604233.35203 "c:/Users/pablo/OneDriveUCM/Universidad/Topologia/Apuntes/main.tex" "main.pdf" "main" 1773604240.10437 0
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1773079578 81245 e934491651270ee8e50db9289c70f8a4 ""
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1744013569 12668 34cd0b7211141c24d914262480788b27 ""
   "C:/Users/pablo/AppData/Local/MiKTeX/fonts/tfm/public/mathabx/matha10.tfm" 1744013534 1372 84a1ef28ab0d13263326e8d7d854aaa0 ""
@@ -341,13 +341,13 @@
   "C:/Users/pablo/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "Preamble/Preamble.tex" 1758016749 11367 60276e4726061d3cee4e911b74ebcb9e ""
   "Theory/1 - Compacidad.tex" 1772621609 50750 bdc58e56033ae48432333b8dcf5bb1e8 ""
-  "Theory/2 - Conexidad.tex" 1773501255 19500 77e2efaafa3719495030435ba8e8df98 ""
+  "Theory/2 - Conexidad.tex" 1773604227 42989 2bfbd1e281180786f7a3bb46739afe68 ""
   "Theory/Theory.tex" 1773497230 85 022d80ada9157323ac125561eabea466 ""
   "c:/Users/pablo/OneDriveUCM/Universidad/Topologia/Apuntes/main.tex" 1770129198 677 6539514073ee74c53aae2ceab10afec9 ""
-  "main.aux" 1773501279 30515 07d8d8c424557a53ca01b847ab4f4f61 "pdflatex"
-  "main.out" 1773501279 1431 dca1fec88cffc4144114fbf4c14e79e1 "pdflatex"
+  "main.aux" 1773604239 31451 95c367b02d2913e7b992160c4b0c3bbe "pdflatex"
+  "main.out" 1773604239 1431 dca1fec88cffc4144114fbf4c14e79e1 "pdflatex"
   "main.tex" 1770129198 677 6539514073ee74c53aae2ceab10afec9 ""
-  "main.toc" 1773501279 850 a58ba1102e21677c10c3ec7da8af4c0e "pdflatex"
+  "main.toc" 1773604239 850 e258d84e6942414f10c97a863cfd7545 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

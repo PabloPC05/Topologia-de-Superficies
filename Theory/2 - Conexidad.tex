@@ -31,34 +31,44 @@
 \end{proof}
 \ejemplo{Algunos ejemplos de espacios conexos son los triviales, discretos, Sierpinski, Kolmogorov, $\R$, $\Q$.}
 \begin{proposición}
-    Sea $\tau$ y $\tau'$ dos topologías en un conjunto $X$ con $\tau \subset \tau'$. Si $(X, \tau')$ es conexo, entonces $(X, \tau)$ es conexo.
+    Sea $\tau$ y $\tau'$ dos topologías en un conjunto $X$ con $\tau \subset \tau'$. Si $(X, \tau')$ es conexo, entonces $(X, \tau)$ es conexo. \\
+    Es decir, la conexidad se conserva al debilitar la topología.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Sean $\tau, \tau^{\prime}$ dos topologías sobre un mismo conjunto tales que $\tau \subset \tau^{\prime}$, pero supongamos que $(X, \tau^{\prime}$ es conexo, pero $(X, \tau)$ no lo es. Entonces sabemos que existe una separación $U|V$ de $(X, \tau)$ distinta de la trivial. No obstante, dado que $\tau \subset \tau^{\prime}$, tenemos que $U, V \in \tau^{\prime}$, por lo que $U|V$ es una separación de $(X, \tau^{\prime})$ distinta de la trivial, lo que contradice la hipótesis de que $(X, \tau^{\prime})$ es conexo.
 \end{proof}
 \begin{proposición}
     Si $U|V$ es una separación de $X$ y $A \subset X$ es conexo, entonces $A \subset U$ o $A \subset V$.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Sean $U, V \in \tau$ tales que $U|V$ es una separación de $X$ y sea $A \subset X$ conexo, pero supongamos que $A \cap V \neq \emptyset$ y $A \cap U \neq \emptyset$. Por tanto podemos definir 
+    $$U_A = A \cap U \text{ y } V_A = A \cap V.$$
+    Ambos $U_A$ y $V_A$ son abiertos en $A$, por ser una topología relativa. Y dado que son una separación en $X$, se ha de cumplir que $U_A \cup V_A = A \cap (U \cup V) = A$. No obstante, tenemos que $A$ es conexo, por lo que se ha de daar que $U_A = A$ y $V_A = \emptyset$ (o viceversa), lo que contradice la hipótesis de que $A \subset U$ y $A \subset V$.
 \end{proof}
 \begin{proposición}
-    Si $A \subset X$ es un conjunto conexo y $A \subset B \subset \overline{A}$, entonces $B$ es conexo.
+    Si $A \subset X$ es un conjunto conexo y $A \subset B \subset Cl{A}$, entonces $B$ es conexo.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Supongamos que bajo las condiciones propuestas, $B$ es disconexo, entonces existe una separación $U|V$ de $B$ distinta de la trivial. Por tanto, $U \cap A$ y $V \cap A$ son abiertos en $A$, disjuntos, $A \cap (U \cup V) = A$, y ninguno es vacío, lo que contradice que $A$ es conexo.
 \end{proof}
 \begin{proposición}
     Si $\{A_\mu\}_{\mu \in M}$ es una familia de subconjuntos conexos de un espacio topológico $X$ y $\bigcap_{\mu \in M} A_\mu \neq \emptyset$, entonces $\bigcup_{\mu \in M} A_\mu$ es conexo.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Bajo las condiciones propuestas, supongamos que $\bigcup_{\mu \in M} A_\mu$ es disconexo, entonces existe una separación $U|V$ de $\bigcup_{\mu \in M} A_\mu$ distinta de la trivial. Además, dado que $\bigcap_{\mu \in M} A_\mu \neq \emptyset$, existe $x_0 \in X$ tal que $x_0 \in A_\mu$ para cada $\mu \in M$. Por tanto, $x_0 \in U$ o $x_0 \in V$, supongamos que $x_0 \in U$, y además que $\forall \mu \in M$, $x_0 \in A_\mu$. \\
+    También tenemos que $\forall \mu \in M$, $A_{\mu} \subset \bigcup_{\mu \in M} A_\mu$, por lo que tenemos que 
+    $$A_{\mu} = (A_{\mu} \cap V) \cup (A_{\mu} \cap U)$$
+    Pero como $A_{\mu} \cap U$ y $A_{\mu} \cap V$ son abiertos en $A_{\mu}$, disjuntos, y $A_{\mu}$ es conexo, se ha de cumplir que $A_{\mu} \subset U$ (dado que $x_0 \in U$). Dado que esto se cumple para cada $\mu \in M$, se ha de cumplir que $\bigcup_{\mu \in M} A_\mu \subset U$, lo que contradice la hipótesis de que $U|V$ es una separación de $\bigcup_{\mu \in M} A_\mu$ distinta de la trivial.
 \end{proof}
 \begin{proposición}
-    Si $A, B \subset X$ son conexos y $\overline{A} \cap B \neq \emptyset$, entonces $A \cup B$ es conexo.
+    Si $A, B \subset X$ son conexos y $Cl(A) \cap B \neq \emptyset$, entonces $A \cup B$ es conexo.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Bajo las condiciones propuestas supongamos que $A \cup B$ es disconexo, entonces existe una separación $U|V$ de $A \cup B$ distinta de la trivial. Esto implica que 
+    $$\begin{cases} A = (A \cap U) \cup (A \cap V) \\ B = (B \cap U) \cup (B \cap V) \end{cases}$$
+    Pero como $A \cap U$ y $A \cap V$ son abiertos en $A$, disjuntos, y $A$ es conexo, se ha de cumplir que $A \subset U$ o $A \subset V$, supongamos que $A \subset U$. Asimismo, debemos suponer que $B \subset V$ (ya que en caso contrario tendriamos que $B \subset U$ y habríamos acabado $A \cup B \subset U$). Ahora, dado que $Cl(A) \cap B \neq \emptyset$, existe $x_0 \in X$ tal que $x_0 \in Cl(A)$ y $x_0 \in B$ y por tanto $x_0 \in B \subset V$. Pero teníamos que $U, V \in \tau_{A \cup B}$, por lo que $\exists W \in \tau$ tal que 
+    $$V = W \cap (A \cup B)$$
+    Entonces tenemos que $x_0 \in W$, por lo que, por la definición de clausura tenemos que $W \cap A \neq \emptyset \iff \exists y \in W \cap A$. Y esto signfica que $y \in A \cup B$ por lo que $y \in W \cap (A \cup B) \implies y \in V$. Pero habíamos supuesto que $A \subset U$, por lo que $y \in A \subset U$, lo que contradice que $U$ y $V$ son disjuntos.
 \end{proof}
 \ejemplo{
     Estúdiese la conexidad de los siguientes subespacios del plano usual:
@@ -71,34 +81,54 @@
     \end{enumerate}
 }
 \begin{proposición}[Imagen continua de un conexo]
-    Si $X$ es conexo y $f \colon X \to Y$ es sobre y continua, entonces $Y$ es conexo.
+    Si $X$ es conexo y $f \colon X \to Y$ es sobreyectiva y continua, entonces $Y$ es conexo.
 \end{proposición}
 \begin{proof}
-    % TODO
+     Supongamos que $X$ es conexo, pero $Y$ no lo es, entonces quiere decir que existe una separación $U|V$ distinta de la trivial. Dado que $f$ es continua, $f^{-1}(U)$ y $f^{-1}(V)$ son abiertos en $X$. Además, dado que $f$ es sobreyectiva, se ha de cumplir que $f^{-1}(U) \neq \emptyset $ y $\cup f^{-1}(V) \neq \emptyset$. Por lo que tenemos que $f^{-1}(U) \cup f^{-1}(V) = f^{-1}(U \cup V) = f^{-1}(Y) = X$. Por último, dado que $U$ y $V$ son disjuntos, se ha de cumplir que $f^{-1}(U) \cap f^{-1}(V) = f^{-1}(U \cap V) = f^{-1}(\emptyset) = \emptyset$. Por tanto, $f^{-1}(U)|f^{-1}(V)$ es una separación de $X$ distinta de la trivial, lo que contradice la hipótesis de que $X$ es conexo.
 \end{proof}
 \begin{corolario}
-    La conexidad es una propiedad topológica.
+    La conexidad es una propiedad topológica. Es decir se conserva bajo homeomorfismo ($f$ es continua, biyectiva y $f^{-1}$ es continua).
 \end{corolario}
 \begin{proof}
-    % TODO
+    Por la proposición anterior, si $X$ es conexo y $f \colon X \to Y$ es continua y sobreyectiva, entonces $Y$ es conexo. Dado que $f$ es un homeomorfismo, $f^{-1} \colon Y \to X$ también es continua y sobreyectiva, por lo que si $Y$ es conexo, entonces $X$ es conexo. 
 \end{proof}
 \begin{corolario}
     Todo cociente de un conexo es conexo.
 \end{corolario}
 \begin{proof}
-    % TODO
+    Sea $X$ un espacio conexo y $X/\sim$ un cociente de $X$. Entonces, por definición de cociente, existe una aplicación continua y sobreyectiva $f \to X/\sim$ tal que $f(x) = [x]$ para cada $x \in X$. Por la proposición anterior, $X/\sim$ es conexo.
 \end{proof}
-\begin{teorema}[de Bolzano]
+\begin{teorema}[Teorema de Bolzano o teorema del valor intermedio]
     Sean $X$ conexo, $f \colon X \to \R$ continua y $x, y \in X$ tales que $f(x) < f(y)$. Entonces, para cada $t \in \R$ con $f(x) < t < f(y)$, existe $z \in X$ tal que $f(z) = t$.
 \end{teorema}
 \begin{proof}
-    % TODO
+    Supongamos, por reducción al absurdo, que existe un $t \in \mathbb{R}$ con $f(x) < t < f(y)$ tal que no existe ningún $z \in X$ que cumpla $f(z) = t$. Esto significa que $t \notin f(X)$.
+
+    Definamos los intervalos $U = (-\infty, t)$ y $V = (t, \infty)$. Es claro que $U$ y $V$ son conjuntos abiertos en la topología usual de $\mathbb{R}$. 
+    
+    Como $f$ es una función continua, las preimágenes $f^{-1}(U)$ y $f^{-1}(V)$ son conjuntos abiertos en $X$. Veamos que estos dos conjuntos forman una separación de $X$:
+    
+    \begin{itemize}
+        \item \textbf{Son no vacíos:} Como $f(x) < t$, se tiene que $f(x) \in U$, luego $x \in f^{-1}(U)$. Análogamente, como $f(y) > t$, se tiene que $f(y) \in V$, luego $y \in f^{-1}(V)$. Por tanto, $f^{-1}(U) \neq \emptyset$ y $f^{-1}(V) \neq \emptyset$.
+        \item \textbf{Son disjuntos:} Como $U \cap V = \emptyset$, entonces $f^{-1}(U) \cap f^{-1}(V) = f^{-1}(U \cap V) = f^{-1}(\emptyset) = \emptyset$.
+        \item \textbf{Cubren a $X$:} Dado que por nuestra suposición original no hay ningún elemento en $X$ cuya imagen sea $t$, para cualquier $w \in X$ se debe cumplir obligatoriamente que $f(w) < t$ o $f(w) > t$. Es decir, $f(w) \in U \cup V$. Por lo tanto, todo $w \in X$ pertenece a $f^{-1}(U)$ o a $f^{-1}(V)$, lo que implica que $X = f^{-1}(U) \cup f^{-1}(V)$.
+    \end{itemize}
+    
+    Hemos encontrado que $f^{-1}(U) | f^{-1}(V)$ es una separación de $X$ formada por dos abiertos disjuntos y no vacíos. Esto contradice directamente la hipótesis de que $X$ es conexo. 
+    
+    La contradicción proviene de suponer que no existía $z \in X$ con $f(z) = t$. Por lo tanto, concluimos que tal $z$ debe existir.
 \end{proof}
+\begin{definición}[Topología Producto]
+    Dados dos espacios topológicos $X$ e $Y$, la \textbf{topología producto} en $X \times Y$ es la topología generada por las bases de la forma $U \times V$, donde $U$ es abierto en $X$ y $V$ es abierto en $Y$.
+\end{definición}
 \begin{proposición}[Producto de conexos]
     Un producto $X \times Y$ es conexo si, y solo si, $X$ e $Y$ son conexos.
 \end{proposición}
 \begin{proof}
-    % TODO
+    $\rightarrow$: Supongamos que $X \times Y$ es conexo, pero $X$ no lo es, entonces existe una separación $U|V$ de $X$ distinta de la trivial, entonces $$U \times Y | V \times Y$$ es una separación de $X \times Y$ distinta de la trivial, lo que contradice la hipótesis.\\
+    $\leftarrow$: Supongamos que $X$ e $Y$ son conexos, entonces, dado que sabemos que es una propiedad topológica sabemos que, dados $x_0 \in X$ y $y_0 \in Y$ podemos afirmar que $X \times \{y_0\}$ y $\{x_0\} \times Y$ son conexos. Así, podemos definir la familia de conjuntos: 
+    $$T_x = (X \times \{y_0\}) \cup (\{x\} \times Y)$$
+    El cual es un conjunto conexo dado que la interesección de ambos conjuntos no es nula. Así formamos la famlia de conjuntos $\{T_x\}_{x \in X}$, la cual es una familia de conjuntos conexos con intersección no vacía, por lo que su unión es conexa. Pero la unión de esta familia de conjuntos es $X \times Y$, por lo que $X \times Y$ es conexo.
 \end{proof}
 
 \subsection{Componentes conexas}
@@ -111,22 +141,44 @@
     Todo subconjunto conexo no vacío de un espacio $X$ está contenido en una única componente conexa de $X$.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Sea $A \subset X$ un conjunto conexo no vacío. Tomemos $x \in A$. Por la definición de componente conexa, existe una componente conexa $C(x)$ que contiene al punto. Dado que $A$ es un conjunto conexo y contiene al punto, $C(X)$ es la unión de todos los conjuntos conexos que contienen a $x$, por lo que se deduce que
+    $$A \subset C(x)$$
+    Esto prueba que $A$ estrá contenido en al menos una componente conexa. \\
+    Ahora veamos la unicidad: Supongamos que $A$ está contenido en dos componentes conexas, $C_1$ y $C_2$. Como $A$ no es vacío, existe $a \in A$ tal que $a \in C_1$ y $a \in C_2$. Por lo tanto, $C_1 \cap C_2 \neq \emptyset$ y dado que son maximales, al compartir un punto han de ser iguales, es decir, $C_1 = C_2$.
 \end{proof}
 \begin{corolario}
     La familia de las componentes conexas de un espacio $X$ es una descomposición de $X$.
 \end{corolario}
 \begin{proof}
-    % TODO
+    Debemos probar que la familia de componentes conexas $\{C_\mu\}_{\mu}$ cumple las tres condiciones de una descomposición:
+    \begin{enumerate}
+        \item \textbf{Recubrimiento:} Sea $x \in X$. El conjunto $\{x\}$ es conexo (trivialmente) y no vacío, por lo que, por la proposición anterior, está contenido en una única componente conexa $C(x)$. En particular, $x \in C(x)$, luego todo punto de $X$ pertenece a alguna componente conexa, es decir, $X = \bigcup_{\mu} C_\mu$.
+        \item \textbf{No vacuidad:} Cada componente conexa es, por definición, un subconjunto conexo maximal, y por la proposición anterior contiene al menos un punto, luego es no vacía.
+        \item \textbf{Disjunción:} Supongamos que dos componentes conexas $C_1$ y $C_2$ cumplen $C_1 \cap C_2 \neq \emptyset$. Entonces existe $x \in C_1 \cap C_2$. Como $\{x\}$ es conexo y no vacío, por la unicidad demostrada en la proposición anterior, la componente conexa que lo contiene es única. Dado que tanto $C_1$ como $C_2$ contienen a $x$, se concluye que $C_1 = C_2$.
+    \end{enumerate}
+    Por tanto, la familia de componentes conexas es una descomposición de $X$.
 \end{proof}
+\begin{definición}[Familia de componentes conexas]
+    Sea $X$ un espacio topológico. La \textbf{familia de componentes conexas} de $X$ es la descomposición $\Gamma(X)$ de $X$ formada por las componentes conexas de $X$.
+\end{definición}
 \begin{definición}[Función $\Gamma$]
-    Denotando por $\Gamma(X)$ al conjunto de las componentes conexas de $X$ y siendo $f \colon X \to Y$ una aplicación continua, se define $\Gamma(f) \colon \Gamma(X) \to \Gamma(Y)$ tomando $\Gamma(f)(C)$, para cada $C \in \Gamma(X)$, como la única componente conexa de $Y$ que contiene a $f(C)$.
+    Sea $f: X \to Y$ una función continua, definimos la aplicación inducida $$\Gamma(f): \Gamma(X) \to \Gamma(Y)$$
+    Tal que para toda componente conexa $C \in \Gamma(X)$, sabemos que $f(C)$ es también un subconjunto conexo de $Y$, por lo que también debe estar contenido en una única componente conexa de $Y$. Entonces se define precisamente esa única componente conexa como $\Gamma(f)(C)$.
 \end{definición}
 \begin{proposición}
     Si $f \colon X \to Y$ es un homeomorfismo, entonces $\Gamma(f) \colon \Gamma(X) \to \Gamma(Y)$ es biyectiva y, para cada $C \in \Gamma(X)$, $\Gamma(f)(C)$ es homeomorfa a $C$.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Veamos la demostración por puntos: 
+    \begin{itemize}
+        \item $\Gamma(f)$ es una biyección: Como $f$ es un homeomorfismo su inversa es continua y usando la propiedad de las aplicaciones inducida dada por
+        $$\Gamma(g \circ f) = \Gamma(g) \circ \Gamma(f), \quad \Gamma(\operatorname{Id}_X) = \operatorname{Id}_{\Gamma(X)}$$
+        Entonces, aplicando esto a $f$ y a $f^{-1}$:
+        $$\Gamma(f^{-1}) \circ \Gamma(f) = \Gamma(f^{-1} \circ f) = \Gamma(\operatorname{Id}_X) = \operatorname{Id}_{\Gamma(X)}$$
+        $$\Gamma(f) \circ \Gamma(f^{-1}) = \Gamma(f \circ f^{-1}) = \Gamma(\operatorname{Id}_Y) = \operatorname{Id}_{\Gamma(Y)}$$
+        Como $\Gamma(f)$ tiene una inversa por ambos lados, concluimos que $\Gamma(f)$ es una biyección.
+        \item $C$ es homeomorfo a $\Gamma(f)(C)$: Sea $C \in \Gamma(X)$ y sea $K = \Gamma(f)(C)$. Por definición, $K$ es la única componente conexa de $Y$ que contiene a $f(C)$, es decir, $f(C) \subset K$. Análogamente, como $\Gamma(f)$ es biyectiva con inversa $\Gamma(f^{-1})$, se tiene que $C$ es la única componente conexa de $X$ que contiene a $f^{-1}(K)$, es decir, $f^{-1}(K) \subset C$. Esto implica que $K \subset f(C)$, y por tanto $f(C) = K$. Así, la restricción $f|_C \colon C \to K$ es sobreyectiva. Como $f$ es inyectiva, $f|_C$ también lo es. Además, $f|_C$ es continua por ser restricción de una función continua. Finalmente, su inversa $(f|_C)^{-1} = f^{-1}|_K \colon K \to C$ es también continua por ser restricción de $f^{-1}$, que es continua por ser $f$ un homeomorfismo. Por tanto, $f|_C \colon C \to K$ es un homeomorfismo.
+    \end{itemize}
 \end{proof}
 \begin{observación}
     El cardinal de $\Gamma(X)$ es un \textbf{invariante topológico} y puede usarse, por ejemplo, para comprobar que $\R \not\approx \R^n$ si $n > 1$, $[0, +\infty) \not\approx \R$, $[0, 1] \not\approx \mathbb{S}^1$ o $\mathbb{S}^1 \not\approx \mathbb{S}^n$ si $n > 1$.
@@ -135,13 +187,16 @@
     Las componentes conexas de un espacio $X$ son cerradas en $X$.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Sea $C$ una componente conexa de $X$. Sabemos que un conjunto es cerrado si y solo si $A = Cl(A)$, por lo que basta con probar que $C = Cl(C)$. Sabemos por una proposición anterior que si $A$ es conexo, entonces cualquier conjunto $B$ con $A \subset B \subset Cl(A)$ es conexo. 
+    En particular, si tomamos $A = C$ y $B = Cl(C)$, entonces el teorema nos dice que $Cl(C)$ es conexo. Pero por la definición de maximalidad de $C$, tenemos que no puede exitir ningún conjunto conexo que contenga a $C$ y sea más grande que él. Por tanto, tenemos que $Cl(C)$ es conexo y que $C \subset Cl(C)$, por lo que se ha de dar necesariamente que $C = Cl(C)$, es decir, $C$ es cerrado.
 \end{proof}
 \begin{proposición}
     Si $A \subset X$ es no vacío, conexo, abierto y cerrado, entonces $A$ es una componente conexa de $X$.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Como $A$ es no vacío, se ha de dar que existe una componente conexa tal que $A \subset C$. Pero supongamos que $A \neq C$. Esto implicaría que existe $y \in C$ pero $y \notin A$. Entonces podemos escribir $C$ como una separción basada en el conjunto $A$: 
+    $$C = (C \cap A) \cup (C \cap X^{c})$$
+    Como $A \subset C$ entonces $C \cap A = A$. Como $A$ es clopen, entonces $A^c$ también lo es. Por lo que en la topología relativa de $C$, los conjuntos $A$ y $C \cap A^c$ son también abiertos (por ser intersecciones de $C$ con abiertos de $X$). Es decir, hemos conseguido escribir $C$ como la uniçon de dos conjuntos abiertos disjuntos y no vacíos. sto implicaría que $C$ es disconexo, lo que contradice la hipótesis de que $C$ es una componente conexa. Por tanto, $A = C$, es decir, $A$ es una componente conexa de $X$.
 \end{proof}
 \ejemplo{
     Calcúlense las componentes conexas de los siguientes espacios:
@@ -182,7 +237,7 @@
     Si $\{A_\mu\}_{\mu \in M}$ es una familia de subconjuntos conexos por caminos de un espacio topológico $X$ y $\bigcap_{\mu \in M} A_\mu \neq \emptyset$, entonces $\bigcup_{\mu \in M} A_\mu$ es conexo por caminos.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Supongamos bajo las condiciones anteriores, que se cumple que $\bigcup_{\mu \in M} A_{\mu}$ no es conexo por caminos, eso quiere decir que existen $x, y \in \bigcup_{\mu \in M} A_{\mu}$ tales que no existe ningún camino de $x$ a $y$. Definamos $\mu_1, \mu_2 \in M$ tales que $x \in A_{\mu_1}$ y $y \in A_{\mu_2}$. Dado que $\bigcap_{\mu \in M} A_\mu \neq \emptyset$, existe $z \in X$ tal que $z \in A_\mu$ para cada $\mu \in M$. Podemos definir los caminos $\varphi_1 \colon \mathbb{I} \to A_{\mu_1}$ y $\varphi_2 \colon \mathbb{I} \to A_{\mu_2}$ como caminos de $x$ a $z$ y de $z$ a $y$, respectivamente. Entonces, la yuxtaposición $\varphi_1 \cdot \varphi_2$ es un camino de $x$ a $y$, lo que contradice la hipótesis de que no existe ningún camino de $x$ a $y$. Por tanto, $\bigcup_{\mu \in M} A_\mu$ es conexo por caminos.
 \end{proof}
 \begin{proposición}
     $\bigcup_{\mu \in M} A_\mu$ también resulta conexo por caminos si se sustituye la condición $\bigcap_{\mu \in M} A_\mu \neq \emptyset$ de la proposición anterior por cualquiera de las siguientes:
@@ -193,37 +248,47 @@
     \end{enumerate}
 \end{proposición}
 \begin{proof}
-    % TODO
+    \begin{enumerate}
+        \item Sean $x, y \in \bigcup_{\mu \in M} A_\mu$. Entonces existen $\alpha, \beta \in M$ tales que $x \in A_\alpha$ y $y \in A_\beta$. Por hipótesis, $A_\alpha \cap A_\beta \neq \emptyset$, por lo que existe $z \in X$ tal que $z \in A_\alpha$ y $z \in A_\beta$. Entonces, como $A_\alpha$ es conexo por caminos, existe un camino $\varphi_1 \colon \mathbb{I} \to A_\alpha$ de $x$ a $z$. Análogamente, con $A_\beta$ ocurre lo mismo. Por tanto, la yuxtaposición $\varphi_1 \cdot \varphi_2$ es un camino de $x$ a $y$, lo que prueba que $\bigcup_{\mu \in M} A_\mu$ es conexo por caminos.
+        \item Es un caso particular del apartado anterior.
+        \item Sea $x, y \in \bigcup_{i \in \N} A_{\mu_i}$. Entonces existen $n, m \in \N$ tales que $x \in A_{\mu_n}$ y $y \in A_{\mu_m}$. Supongamos sin pérdida de generalidad que $n < m$. Por hipótesis, para cada $i \in \N$ se cumple que $A_{\mu_i} \cap A_{\mu_{i+1}} \neq \emptyset$, por tanto si llamamos $k = m - n$ y definimos $z_i \in A_{\mu_{n+i}} \cap A_{\mu_{n+i+1}}$ para cada $i = 0, \dots, k - 1$, entonces $z_0 \in A_{\mu_n}$, $z_{k-1} \in A_{\mu_m}$ y $z_i \in A_{\mu_{n+i}}$ para cada $i = 0, \dots, k - 1$. Por tanto, como cada $A_{\mu_i}$ es conexo por caminos, existen caminos $\varphi_0 \colon \mathbb{I} \to A_{\mu_n}$ de $x$ a $z_0$, $\varphi_k \colon \mathbb{I} \to A_{\mu_m}$ de $z_{k-1}$ a $y$ y $\varphi_i \colon \mathbb{I} \to A_{\mu_{n+i}}$ de $z_{i-1}$ a $z_i$ para cada $i = 1, \dots, k - 1$. Entonces, la yuxtaposición $\varphi_0 \cdot \varphi_1 \cdot \dots \cdot \varphi_k$ es un camino de $x$ a $y$, lo que prueba que $\bigcup_{i \in \N} A_{\mu_i}$ es conexo por caminos.
+    \end{enumerate}
 \end{proof}
 \begin{proposición}[Imagen continua de un conexo por caminos]
     Si $X$ es conexo por caminos y $f \colon X \to Y$ es sobre y continua, $Y$ es conexo por caminos.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Sean $y_1, y_2 \in Y$. Dado que $f$ es sobreyectiva, existen al menos $x_1, x_2 \in X$ tales que $f(x_1) = y_1$ y $f(x_2) = y_2$. Como $X$ es conexo por caminos, existe un camino $\varphi \colon \mathbb{I} \to X$ de $x_1$ a $x_2$. Entonces, la composición $f \circ \varphi \colon \mathbb{I} \to Y$ es un camino de $y_1$ a $y_2$, lo que prueba que $Y$ es conexo por caminos.
 \end{proof}
 \begin{corolario}
     La conexidad por caminos es una propiedad topológica.
 \end{corolario}
 \begin{proof}
-    % TODO
+    Por la proposición anterior, si $X$ es conexo por caminos y $f \colon X \to Y$ es continua y sobreyectiva, entonces $Y$ es conexo por caminos. Dado que $f$ es un homeomorfismo, $f^{-1} \colon Y \to X$ también es continua y sobreyectiva, por lo que si $Y$ es conexo por caminos, entonces $X$ es conexo por caminos.
 \end{proof}
 \begin{corolario}
     Todo cociente de un conexo por caminos es conexo por caminos.
 \end{corolario}
 \begin{proof}
-    % TODO
+    Sea $X$ un espacio conexo por caminos y $X/\sim$ un cociente de $X$. Entonces, por definición de cociente, existe una aplicación continua y sobreyectiva $f \to X/\sim$ tal que $f(x) = [x]$ para cada $x \in X$. Por la proposición anterior, $X/\sim$ es conexo por caminos.
 \end{proof}
 \begin{proposición}
     Para $n \geq 1$, $\R^{n+1} \setminus \{0\}$ es conexo por caminos y, como consecuencia, también lo son la esfera $\mathbb{S}^n$ y el espacio proyectivo $\R P^n$.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Dados $x, y \in \R^{n+1} \setminus \{0\}$, el segmento $[x, y]$ es un camino de $x$ a $y$, si pasa por el origen, el camino es un segmento recto; si el segmento sí pasa por el origen, simplemente tomamos un punto auxiliar $z$ que esté fuera de la recta que une $x, y$ con el origen y nes $x \to z \to y$. como estamos en $\R^{n+1} \geq 2$ siempre hay espacio para evitar al origen. \\
+    Para el caso de la esfera tomamos la función normalización: 
+    $$f: \R^{n+1} \setminus \{0\} \to \mathbb{S}^n, \quad f(x) = \frac{x}{\|x\|}$$
+    La función $f$ es continua y sobreyectiva, por lo que $\mathbb{S}^n$ es conexo por caminos. Para el caso del espacio proyectivo, tomamos la función proyección:
+    $$g: \R^{n+1} \setminus \{0\} \to \R P^n, \quad g(x) = [x]$$
+    La función $g$ es continua y sobreyectiva, por lo que $\R P^n$ es conexo por caminos. \\ 
 \end{proof}
 \begin{proposición}[Producto de conexos por caminos]
     Un producto $X \times Y$ es conexo por caminos si, y solo si, $X$ e $Y$ son conexos por caminos.
 \end{proposición}
 \begin{proof}
-    % TODO
+    $\Rightarrow$: Supongamos que $X \times Y$ es conexo por caminos. Definimos las aplicaciones proyección de cada espacio $p_X: X \times Y \to X$ y $p_Y: X \times Y \to Y$. Ambas aplicaciones son continuas y sobreyectivas, por lo que, por la proposición anterior, $X$ e $Y$ son conexos por caminos.\\
+    $\Leftarrow$: Supongamos que $X$ e $Y$ son conexos. Definamos los puntos $a = (x_0, y_0)$ y $b = (x_1, y_1)$ en $X \times Y$. Dado que $X$ es conexo por caminos, existe un camino $\varphi \colon \mathbb{I} \to X$ de $x_0$ a $x_1$. Análogamente, como $Y$ es conexo por caminos, existe un camino $\psi \colon \mathbb{I} \to Y$ de $y_0$ a $y_1$. Entonces, la aplicación $\varphi \times \psi \colon \mathbb{I} \to X \times Y$ dada por $(\varphi \times \psi)(t) = (\varphi(t), \psi(t))$ es un camino de $a$ a $b$, lo que prueba que $X \times Y$ es conexo por caminos, ya que es continua por serlo cada una de sus componentes. 
 \end{proof}
 \ejemplo{
     Compruébese si son conexos por caminos:
@@ -238,7 +303,7 @@
     Todo espacio conexo por caminos es conexo.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Supongamos que $X$ es un espacio conexo por caminos, pero no es conexo. Entonces existe una separación $U|V$ de $X$. Dado que $U$ y $V$ son no vacíos, existen $x \in U$ y $y \in V$. Como $X$ es conexo por caminos, existe un camino $\varphi \colon \mathbb{I} \to X$ de $x$ a $y$. Entonces, $\varphi^{-1}(U)$ y $\varphi^{-1}(V)$ son conjuntos abiertos en $\mathbb{I}$, disjuntos, no vacíos y cuya unión es $\mathbb{I}$, lo que contradice la conexidad de $\mathbb{I}$. Por tanto, $X$ es conexo.
 \end{proof}
 \ejemplo{
     Los siguientes son ejemplos de espacios conexos que no son conexos por caminos, los tres primeros dotados de la topología usual:
@@ -255,16 +320,39 @@
     Para subconjuntos de $\R$ y para subconjuntos abiertos de $\R^n$, la conexidad equivale a la conexidad por caminos.
 \end{proposición}
 \begin{proof}
-    % TODO
+    La demostración se divide en dos partes.
+
+    \textbf{Parte 1: Subconjuntos de $\R$.} Sea $A \subset \R$ conexo. Veamos que $A$ es conexo por caminos. Primero, observemos que $A$ debe ser un intervalo (posiblemente degenerado). En efecto, si $a, b \in A$ con $a < b$ y existiera $c \in (a, b)$ con $c \notin A$, entonces $U = A \cap (-\infty, c)$ y $V = A \cap (c, +\infty)$ serían una separación no trivial de $A$, contradiciendo su conexidad. Por tanto, $A$ es un intervalo. Ahora, dados $x, y \in A$, el segmento $[x, y] \subset A$ (por ser $A$ un intervalo), y la aplicación $\varphi \colon \mathbb{I} \to A$ dada por $\varphi(t) = (1-t)x + ty$ es un camino continuo de $x$ a $y$. Por tanto, $A$ es conexo por caminos.
+
+    \textbf{Parte 2: Subconjuntos abiertos de $\R^n$.} Sea $A \subset \R^n$ abierto y conexo. Veamos que $A$ es conexo por caminos. Fijemos $x_0 \in A$ y definamos
+    $$C = \{x \in A \mid \text{existe un camino en } A \text{ de } x_0 \text{ a } x\}.$$
+    Veamos que $C$ es abierto: si $x \in C$, como $A$ es abierto, existe $\varepsilon > 0$ tal que $B(x, \varepsilon) \subset A$. Para cualquier $y \in B(x, \varepsilon)$, el segmento de $x$ a $y$ está contenido en $B(x, \varepsilon) \subset A$ (por ser la bola convexa), por lo que concatenando el camino de $x_0$ a $x$ con el segmento de $x$ a $y$ obtenemos un camino de $x_0$ a $y$, luego $y \in C$. Por tanto, $B(x, \varepsilon) \subset C$ y $C$ es abierto.
+
+    Veamos que $A \setminus C$ es abierto: si $x \in A \setminus C$, como $A$ es abierto, existe $\varepsilon > 0$ tal que $B(x, \varepsilon) \subset A$. Si existiera $y \in B(x, \varepsilon) \cap C$, habría un camino de $x_0$ a $y$, y concatenándolo con el segmento de $y$ a $x$ (contenido en la bola convexa $B(x, \varepsilon) \subset A$) obtendríamos un camino de $x_0$ a $x$, lo que contradice que $x \notin C$. Por tanto, $B(x, \varepsilon) \subset A \setminus C$ y $A \setminus C$ es abierto.
+
+    Así, $C$ y $A \setminus C$ son abiertos en $A$, disjuntos, con $C \cup (A \setminus C) = A$. Como $x_0 \in C$, se tiene $C \neq \emptyset$. Dado que $A$ es conexo, debe ser $A \setminus C = \emptyset$, es decir, $C = A$. Esto prueba que $A$ es conexo por caminos.
 \end{proof}
 
 \subsection{Componentes conexas por caminos}
+\begin{definición}[Relación de equivalencia]
+    Sea $X$ un espacio topológico. Una relación de equivalencia $\sim$ en $X$ es una relación que cumple las tres propiedades clásicas para todo $x, y, z \in X$:
+    \begin{itemize}
+        \item Reflexividad: $x \sim x$.
+        \item Simetría: $x \sim y \Rightarrow y \sim x$
+        \item Transitividad: $x \sim y$ y $y \sim z \Rightarrow x \sim z$.
+    \end{itemize}
+\end{definición}
 
 \begin{proposición}
     En un espacio topológico $X$, la relación $x \sim y \Leftrightarrow$ existe un camino en $X$ de $x$ a $y$ es una relación de equivalencia.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Sea $\sim$ la relación en $X$ definida por $x \sim y$ si, y solo si, existe un camino en $X$ de $x$ a $y$. Veamos que $\sim$ es una relación de equivalencia:
+    \begin{itemize}
+        \item Reflexividad: Para cada $x \in X$ es trivial ver que podemos definir un camino que empiece y termine en $x$ (la funcion constante $\varphi(t) = x$ para cada $t \in \mathbb{I}$), por lo que $x \sim x$.
+        \item Simetría: Si $x \sim y$, entonces existe un camino $\varphi \colon \mathbb{I} \to X$ de $x$ a $y$. Entonces, el camino inverso $\overline{\varphi} \colon \mathbb{I} \to X$ es un camino de $y$ a $x$, por lo que $y \sim x$.
+        \item Transitividad: Si $x \sim y$ y $y \sim z$, entonces existen caminos $\varphi \colon \mathbb{I} \to X$ de $x$ a $y$ y $\psi \colon \mathbb{I} \to X$ de $y$ a $z$. Entonces, la yuxtaposición $\varphi \cdot \psi \colon \mathbb{I} \to X$ es un camino de $x$ a $z$, por lo que $x \sim z$.
+    \end{itemize}
 \end{proof}
 \begin{definición}[Componentes conexas por caminos]
     Las clases de equivalencia de la relación anterior se denominan \textbf{componentes conexas por caminos} del espacio $X$. La clase de un punto $x \in X$ se denota por $c(x)$ y se denomina \textbf{componente conexa por caminos del punto} $x$.
@@ -273,7 +361,8 @@
     Para cada $x \in X$, la componente conexa por caminos de $x$, $c(x)$, es el mayor subconjunto conexo por caminos de $X$ que contiene a $x$.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Sea $C(x) = \{y \in X \mid \text{existe un camino en } X \text{ de } x \text{ a } y\}$. Veamos que $C(x)$ es conexo por caminos: Dados $y_1, y_2 \in C(x)$, existen caminos $\varphi_1 \colon \mathbb{I} \to X$ de $x$ a $y_1$ y $\varphi_2 \colon \mathbb{I} \to X$ de $x$ a $y_2$. Entonces por yuxtaposición el camino $\alpha = \overline{\varphi_1} \cdot \varphi_2$ es un camino de $y_1$ a $y_2$, por lo que $C(x)$ es conexo por caminos \\
+    Ahora veamos la maximalidad de $C(x)$: Sea $A \subset X$ cualquier subconjunto conexo por caminos tal que $x \in A$. Sea $a \in A$, como $A$ es conexo por caminos y $x, a \in A \implies$ existe un camino $\varphi \colon \mathbb{I} \to A$ de $x$ a $a$. Como la imagen del camino está en $A \subset X$ entonces $\varphi$ es un camino en $X$ que une a $x$ con $a$. Por la definiciónd e clase de equivalencia esto significa que $a \in C(x)$. Como esto se cumple para todo $a \in A$ concluimos que $A \subset C(x)$. 
 \end{proof}
 \begin{corolario}
     Cualquier subconjunto conexo por caminos no vacío de $X$ está contenido en una única componente conexa por caminos de $X$.
