@@ -1,0 +1,62 @@
+﻿\section{Compacidad}
+
+% Capítulo 20: Compacidad en espacios métricos
+
+\subsection{Número de Lebesgue}
+
+\begin{definición}[Número de Lebesgue]
+    Sea $(X,d)$ métrico y $\mathcal U$ un recubrimiento abierto de $X$. Un número $\delta>0$ es un \textbf{número de Lebesgue} de $\mathcal U$ si toda bola $B(x,\delta)$ queda contenida en algún elemento de $\mathcal U$.
+\end{definición}
+
+\begin{teorema}
+    Si $(X,d)$ es compacto, todo recubrimiento abierto de $X$ admite número de Lebesgue.
+\end{teorema}
+
+\subsection{Totalmente acotado y completo}
+
+\begin{definición}[Totalmente acotado]
+    Un espacio métrico $(X,d)$ es \textbf{totalmente acotado} si para todo $\varepsilon>0$ existe un recubrimiento finito de $X$ por bolas de radio $\varepsilon$.
+\end{definición}
+
+\begin{proposición}
+    Todo compacto métrico es totalmente acotado y completo.
+\end{proposición}
+
+\begin{teorema}[Caracterización métrica]
+    En espacios métricos:
+    $$X \text{ compacto } \Longleftrightarrow X \text{ completo y totalmente acotado.}$$
+\end{teorema}
+
+% Capítulo 20: Espacios compactos
+
+\subsection{Recubrimientos}
+
+\begin{definición}[Recubrimiento abierto y compacto]
+    Un recubrimiento abierto de $X$ es una familia $\mathcal U\subset \tau$ con
+    $$X=\bigcup_{U\in\mathcal U} U.$$
+    El espacio $(X,\tau)$ es \textbf{compacto} si todo recubrimiento abierto admite subrecubrimiento finito.
+\end{definición}
+
+\begin{proposición}[Caracterización por cerrados]
+    $X$ es compacto si y sólo si toda familia de cerrados con la propiedad de intersección finita tiene intersección no vacía.
+\end{proposición}
+
+\subsection{Propiedades principales}
+
+\begin{proposición}
+    Toda imagen continua de un compacto es compacta.
+\end{proposición}
+
+\begin{corolario}
+    La compacidad es invariante topológica.
+\end{corolario}
+
+\begin{proposición}
+    En espacios Hausdorff, los subconjuntos compactos son cerrados.
+\end{proposición}
+
+\subsection{Producto de compactos}
+
+\begin{teorema}[Tychonoff finito]
+    Si $X$ e $Y$ son compactos, entonces $X\times Y$ es compacto.
+\end{teorema}

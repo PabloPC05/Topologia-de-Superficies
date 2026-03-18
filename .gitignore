@@ -3,3 +3,8 @@
 *.out
 *.toc
 *.synctex.gz
+*.fdb_latexmk
+*.fls
+1-Compacidade-1.pdf
+2-Conexidade-2.pdf
+TEORIA.pdf

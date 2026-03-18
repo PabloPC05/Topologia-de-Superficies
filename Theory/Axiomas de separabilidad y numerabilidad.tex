@@ -1,0 +1,107 @@
+﻿\section{Axiomas de separabilidad y numerabilidad}
+
+% Capítulo 18: Primer axioma de numerabilidad
+
+\subsection{Espacios primero numerables}
+
+\begin{definición}[Primer axioma de numerabilidad]
+    Un espacio topológico $X$ es \textbf{primero numerable} si todo punto $x\in X$ tiene una base local numerable.
+\end{definición}
+
+\ejemplo{Todo espacio métrico es primero numerable: en $x$ basta la familia de bolas $B(x,1/n)$, $n\in\mathbb{N}$.}
+
+\subsection{Sucesiones y convergencia}
+
+\begin{proposición}
+    En un espacio primero numerable, un punto $x$ pertenece a $\mathrm{Cl}(A)$ si y sólo si existe una sucesión $(a_n)$ en $A$ tal que $a_n\to x$.
+\end{proposición}
+
+\subsection{Continuidad secuencial}
+
+\begin{proposición}
+    Si $X$ es primero numerable, para $f:X\to Y$ se tiene:
+    $$f \text{ continua } \Longleftrightarrow \forall (x_n),\ x_n\to x \Rightarrow f(x_n)\to f(x).$$
+\end{proposición}
+
+% Capítulo 19 (Axiomas): Segundo axioma de numerabilidad
+
+\subsection{Espacios segundo numerables}
+
+\begin{definición}[Segundo numerable]
+    Un espacio $X$ es \textbf{segundo numerable} (o verifica el \emph{segundo axioma de numerabilidad}) si admite una base numerable para su topología.
+\end{definición}
+
+\begin{proposición}
+    Todo espacio 2-numerable es 1-numerable.
+\end{proposición}
+\begin{proof}
+    Si $\mathcal{B}$ es una base numerable, para cada $x \in X$ la colección $\mathcal{B}_x = \{B \in \mathcal{B} : x \in B\}$ es una base local numerable (por ser subconjunto de $\mathcal{B}$).
+\end{proof}
+
+\ejemplo{
+    \begin{itemize}
+        \item La topología usual de $\mathbb{R}^n$ es 2-numerable: los intervalos $(q_1 - r, q_1 + r) \times \cdots$ con centros racionales y radio racional forman una base numerable.
+        \item La recta de Sorgenfrey es 1-numerable pero \textbf{no} 2-numerable: si tuviese base numerable $\mathcal{B}$, la asignación $x \mapsto B_x$ (donde $x \in B_x \subset [x, x+1)$) sería inyectiva $\mathbb{R} \to \mathcal{B}$, pero $\mathbb{R}$ no es numerable.
+    \end{itemize}
+}
+
+\subsection{Espacios separables}
+
+\begin{definición}[Denso y separable]
+    Un subespacio $A \subset X$ es \textbf{denso} en $X$ si $\mathrm{Cl}(A) = X$, equivalentemente si $A$ corta a todos los abiertos no vacíos.
+
+    Un espacio topológico $X$ es \textbf{separable} si contiene un subespacio denso y numerable.
+\end{definición}
+
+\ejemplo{
+    $\mathbb{Q}$ es denso y numerable en $\mathbb{R}$ con la topología usual (y también en la Sorgenfrey), luego $\mathbb{R}$ es separable. Asimismo, $\mathbb{R}^n$ es separable tomando $\mathbb{Q}^n$ como subconjunto denso numerable.
+}
+
+\begin{proposición}
+    Si un espacio topológico es 2-numerable, entonces es separable.
+\end{proposición}
+\begin{proof}
+    Sea $\mathcal{B}$ una base numerable de $\tau$. En cada abierto básico $B \in \mathcal{B}$ escogemos un punto $x_B$. El conjunto $A = \{x_B : B \in \mathcal{B}\}$ es numerable y denso: si $U$ es un abierto no vacío, existe $B$ básico con $x \in B \subset U$, luego $x_B \in A \cap U \neq \emptyset$.
+\end{proof}
+
+\begin{proposición}
+    Sea $(X, \tau)$ un espacio topológico metrizable. Si $X$ es separable, entonces es 2-numerable.
+\end{proposición}
+\begin{proof}
+    Sea $A$ un subespacio denso y numerable con métrica $d$. Las bolas $B(a, r)$ con $a \in A$ y $r \in \mathbb{Q}_{>0}$ forman una base numerable: dado $x \in U$ abierto, existe $B(x, \varepsilon) \subset U$; tomando $a \in A \cap B(x, \varepsilon/4)$ y racional $\varepsilon/4 < r < 3\varepsilon/4$ se tiene $x \in B(a, r) \subset B(x, \varepsilon) \subset U$.
+\end{proof}
+
+\begin{corolario}
+    La topología de Sorgenfrey en $\mathbb{R}$ no procede de ninguna métrica: es separable (pues $\mathbb{Q}$ es denso) pero no es 2-numerable.
+\end{corolario}
+
+% Capítulo 20: Propiedades de separación
+
+\subsection{Axiomas de separación}
+
+\begin{definición}[$T_0$, $T_1$, Hausdorff]
+    Un espacio $X$ es:
+    \begin{itemize}
+        \item $T_0$ si para $x\neq y$ existe un abierto que contiene a uno y no al otro.
+        \item $T_1$ si para $x\neq y$ existen abiertos que separan cada punto del otro.
+        \item \textbf{Hausdorff} ($T_2$) si para $x\neq y$ existen abiertos disjuntos $U,V$ con $x\in U$, $y\in V$.
+    \end{itemize}
+\end{definición}
+
+\begin{proposición}
+    En un espacio Hausdorff, los límites de sucesiones (cuando existen) son únicos.
+\end{proposición}
+
+\begin{proposición}
+    Todo subespacio de un Hausdorff es Hausdorff y todo producto finito de Hausdorff es Hausdorff.
+\end{proposición}
+
+\subsection{Espacios normales}
+
+\begin{definición}[Regular y normal]
+    Un espacio $X$ es regular si puntos y cerrados disjuntos pueden separarse por abiertos. Es normal si cualesquiera dos cerrados disjuntos pueden separarse por abiertos.
+\end{definición}
+
+\begin{proposición}
+    Todo espacio métrico es normal (y en particular regular y Hausdorff).
+\end{proposición}

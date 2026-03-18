@@ -1,0 +1,439 @@
+﻿\section{Espacios topológicos}
+
+% Capítulo 1: Espacios topológicos
+
+\subsection{Topología usual en $\mathbb{R}^n$}
+
+En el curso de \emph{Topología de los espacios euclidianos} definíamos un subconjunto abierto en $X = \mathbb{R}^n$ de la siguiente forma:
+
+\begin{definición}[Abierto en $\mathbb{R}^n$]
+    Un subconjunto $U \subset \mathbb{R}^n$ es \textbf{abierto} en $\mathbb{R}^n$ si todos sus puntos son interiores, es decir, si para todo $x \in U$ existe algún $\varepsilon > 0$ tal que $x \in B(x, \varepsilon) \subset U$, donde
+    $$B(x, \varepsilon) = \{y \in \mathbb{R}^n : d(x,y) < \varepsilon\}$$
+    es la bola abierta de centro $x$ y radio $\varepsilon$, con $d$ la distancia euclídea usual.
+\end{definición}
+
+Se comprueban fácilmente las siguientes propiedades de los abiertos en $\mathbb{R}^n$:
+\begin{enumerate}
+    \item El conjunto vacío $\emptyset$ es abierto en $\mathbb{R}^n$.
+    \item El espacio total $X = \mathbb{R}^n$ es abierto en $\mathbb{R}^n$.
+    \item La unión arbitraria de abiertos en $\mathbb{R}^n$ es un abierto en $\mathbb{R}^n$.
+    \item La intersección finita de abiertos en $\mathbb{R}^n$ es un abierto en $\mathbb{R}^n$.
+\end{enumerate}
+
+\ejemplo{
+    No es cierto que la intersección arbitraria de abiertos sea abierta. Por ejemplo, en la recta real $\mathbb{R}$, los intervalos $U_m = (-1/m, +1/m)$ son abiertos para todo $m \in \mathbb{N}$, pero la intersección $\bigcap_m U_m = \{0\}$ no es abierto.
+}
+
+\begin{observación}
+    Queremos prescindir de la distancia, porque muchas propiedades interesantes como la continuidad, la conexidad o la compacidad pueden expresarse únicamente en términos de conjuntos abiertos, sin usar la distancia. Esta es la motivación para introducir la noción abstracta de topología.
+\end{observación}
+
+\subsection{Topologías}
+
+\begin{definición}[Topología]
+    Sea $X$ un conjunto. Una \textbf{topología} en $X$ es una colección $\tau$ de subconjuntos de $X$ que cumple las siguientes propiedades:
+    \begin{enumerate}
+        \item El subconjunto vacío $\emptyset$ está en $\tau$.
+        \item El espacio total $X$ está en $\tau$.
+        \item La unión arbitraria de elementos de $\tau$ está en $\tau$.
+        \item La intersección finita de elementos de $\tau$ está en $\tau$.
+    \end{enumerate}
+    Un \textbf{espacio topológico} $(X, \tau)$ es un conjunto en el que se ha definido una topología. A los elementos de la topología los llamaremos \textbf{conjuntos abiertos} del espacio topológico.
+\end{definición}
+
+\begin{observación}
+    Para comprobar el axioma 4) basta hacerlo para $n = 2$ abiertos, y después procedemos por inducción, ya que $U_1 \cap \cdots \cap U_n = (U_1 \cap \cdots \cap U_{n-1}) \cap U_n$ para $n > 2$.
+\end{observación}
+
+\ejemplo{
+    En $X = \mathbb{R}^n$ tenemos la \textbf{topología usual} $\tau_{\text{usual}}$ definida anteriormente.
+}
+
+\ejemplo{
+    En $X = \mathbb{R}$, la \textbf{topología cofinita} $\tau_{\text{cofin}}$ está formada por el conjunto vacío y los subconjuntos $U \subset X$ tales que su complementario $X \setminus U$ es finito.
+
+    Comprobación de los axiomas:
+    \begin{enumerate}
+        \item $\emptyset \in \tau$ por definición.
+        \item $X \in \tau$ porque su complementario $X \setminus X = \emptyset$ se considera finito.
+        \item Si $\{U_i\}_{i \in I} \subset \tau$, entonces $X \setminus \bigcup_i U_i = \bigcap_i (X \setminus U_i)$, que es subconjunto del finito $X \setminus U_j$ (para cualquier $j$ con $U_j \neq \emptyset$), y por tanto finito.
+        \item Si $U_1, \ldots, U_n \in \tau$, entonces $X \setminus (U_1 \cap \cdots \cap U_n) = (X \setminus U_1) \cup \cdots \cup (X \setminus U_n)$, que es unión finita de conjuntos finitos y por tanto finito.
+    \end{enumerate}
+}
+
+\ejemplo{
+    En $X = \mathbb{R}$, la \textbf{topología de Kolmogorov} está formada por el vacío y los conjuntos $(a, +\infty)$ donde $a \in \mathbb{R} \cup \{-\infty\}$.
+
+    La comprobación de los axiomas es análoga: la unión arbitraria es $({\rm inf}\, a_i, +\infty)$ y la intersección finita es $(\max a_i, +\infty)$.
+}
+
+\ejemplo{
+    En un conjunto $X$ dotado con un orden parcial (\emph{poset}), podemos definir la \textbf{topología del orden} $\tau$ cuyos abiertos son el vacío y los conjuntos $U \subset X$ que cumplen: si $x \in U$ e $y \leq x$, entonces $y \in U$.
+}
+
+\begin{definición}[Comparación de topologías]
+    Si $\tau, \tau'$ son dos topologías en el conjunto $X$, decimos que $\tau$ es \textbf{más fina} que $\tau'$ si $\tau' \subset \tau$, es decir, si todo abierto de $\tau'$ es abierto de $\tau$ (en otras palabras, $\tau$ tiene más abiertos). Análogamente, $\tau'$ es \textbf{más gruesa} que $\tau$.
+\end{definición}
+
+\subsection{Topologías extremas}
+
+\begin{definición}[Topología discreta y trivial]
+    Sea $X$ un conjunto.
+    \begin{itemize}
+        \item La \textbf{topología discreta} es $\tau_{\text{disc}} = \mathcal{P}(X)$ (todos los subconjuntos son abiertos). Es la topología más fina posible.
+        \item La \textbf{topología trivial} (o indiscreta) es $\tau_{\text{triv}} = \{\emptyset, X\}$. Es la topología más gruesa posible.
+    \end{itemize}
+\end{definición}
+
+% Capítulo 2: Entornos y Bases
+
+\subsection{Entornos}
+
+Si $(X, \tau)$ es un espacio topológico, los elementos $U \in \tau$ se llaman \textbf{conjuntos abiertos} en $X$.
+
+\begin{definición}[Entorno abierto]
+    Un \textbf{entorno abierto} del punto $x \in X$ es cualquier abierto $U \in \tau$ que lo contenga, $x \in U$.
+\end{definición}
+
+\ejemplo{
+    En $\mathbb{R}^2$ con la topología usual, la bola abierta $B(x, \varepsilon) = \{y \in \mathbb{R}^2 : d(y,x) < \varepsilon\}$, $\varepsilon > 0$, es un entorno abierto del centro $x$. También es un entorno abierto de cualquiera de sus puntos.
+}
+
+\begin{definición}[Entorno]
+    Un \textbf{entorno} del punto $x \in X$ es un conjunto $N$ que contiene un entorno abierto de $x$: es decir, existe $U \in \tau$ tal que $x \in U \subset N$.
+\end{definición}
+
+\ejemplo{
+    En $(\mathbb{R}^2, \tau_{\text{usual}})$, la bola cerrada $\overline{B}((0,0), \varepsilon) = \{y \in \mathbb{R}^2 : d(y,0) \leq \varepsilon\}$ es un entorno del centro $(0,0)$, pero \textbf{no} es un entorno de los puntos del borde (por ejemplo $(0, \varepsilon)$).
+}
+
+\begin{proposición}
+    En un espacio topológico $(X, \tau)$, un conjunto $U \subset X$ es abierto en $X$ si y sólo si es un entorno de todos sus puntos.
+\end{proposición}
+\begin{proof}
+    $(\Rightarrow)$: Sea $U \in \tau$ un abierto no vacío, y sea $x \in U$. Obviamente $U$ es un entorno (abierto) de $x$.
+
+    $(\Leftarrow)$: Supongamos que $N$ es un entorno de todos sus puntos, es decir, para cada $x \in N$ existe un abierto $U_x \in \tau$ tal que $x \in U_x \subset N$. Entonces $N = \bigcup_{x \in N} U_x$. Como es unión de abiertos, es abierto.
+\end{proof}
+
+\subsection{Bases}
+
+En la topología usual de $\mathbb{R}^n$, las bolas abiertas son unos abiertos especiales que generan todos los demás.
+
+\begin{definición}[Base de abiertos]
+    Sea $(X, \tau)$ un espacio topológico. Una colección de abiertos $\mathcal{B} \subset \tau$ es una \textbf{base de abiertos} de la topología si cada abierto $U \in \tau$ se puede escribir como unión de abiertos de la colección $\mathcal{B}$.
+\end{definición}
+
+\begin{proposición}
+    Una colección $\mathcal{B}$ de subconjuntos es una base de abiertos de la topología si y sólo si:
+    \begin{enumerate}
+        \item Cada conjunto $B \in \mathcal{B}$ es un abierto, $B \in \tau$.
+        \item Para cada abierto $U \in \tau$ y cada punto $x \in U$, existe un abierto básico $B \in \mathcal{B}$ tal que $x \in B \subset U$.
+    \end{enumerate}
+\end{proposición}
+
+\ejemplo{
+    Las bolas abiertas son una base de abiertos de la topología usual de $\mathbb{R}^n$. En particular, los intervalos abiertos son una base de la topología usual de $\mathbb{R}$.
+}
+
+\subsection{Condición para ser base}
+
+\begin{proposición}
+    Una colección de subconjuntos $\mathcal{B}$ del conjunto $X$ es base de alguna topología en $X$ (es decir, la colección $\tau(\mathcal{B})$ de uniones arbitrarias verifica los axiomas de topología) si y sólo si se cumplen:
+    \begin{enumerate}
+        \item $X$ puede escribirse como unión de elementos de $\mathcal{B}$.
+        \item Si $B_1, B_2 \in \mathcal{B}$ y $x \in B_1 \cap B_2$, entonces existe $B_3 \in \mathcal{B}$ tal que $x \in B_3 \subset B_1 \cap B_2$.
+    \end{enumerate}
+\end{proposición}
+
+\ejemplo{
+    La \textbf{topología de Sorgenfrey} (o del límite inferior) en $X = \mathbb{R}$ tiene como base los intervalos semiabiertos $[a, b)$, con $a < b$.
+
+    Se puede comprobar que todo abierto usual es un abierto de Sorgenfrey, pero no al revés (por ejemplo, $[0, 1)$ es Sorgenfrey-abierto pero no usual-abierto). Por tanto $\tau_{\text{usual}} \subsetneq \tau_{\text{Sorgenfrey}}$.
+}
+
+\subsection{Base local}
+
+\begin{definición}[Base local de entornos abiertos]
+    Sea $(X, \tau)$ un espacio topológico y sea $\mathcal{B}_x$ una colección de abiertos. Decimos que $\mathcal{B}_x$ es una \textbf{base local de entornos abiertos} del punto $x$ si:
+    \begin{enumerate}
+        \item Cada $B \in \mathcal{B}_x$ es un entorno abierto de $x$.
+        \item Dado cualquier entorno abierto $U_x$ de $x$, existe $B \in \mathcal{B}_x$ tal que $x \in B \subset U_x$.
+    \end{enumerate}
+\end{definición}
+
+\ejemplo{
+    Los intervalos $(-\varepsilon, +\varepsilon)$, $\varepsilon > 0$, son una base local para $0 \in \mathbb{R}$ con la topología usual. También lo son los intervalos $(- 1/n, +1/n)$ con $n \in \mathbb{N}$.
+
+    Las bolas abiertas $B(x, 1/n)$ son una base local para el centro $x$ en $\mathbb{R}^n$ con la topología usual.
+}
+
+\begin{proposición}
+    \begin{enumerate}
+        \item Si tenemos bases locales $\mathcal{B}_x$ en cada $x \in X$, entonces $\mathcal{B} = \bigcup_{x \in X} \mathcal{B}_x$ es una base de abiertos de la topología.
+        \item Si $\mathcal{B}$ es una base de la topología, y $x \in X$ es un punto, entonces los abiertos básicos que contienen a $x$, $\mathcal{B}_x = \{B \in \mathcal{B} : x \in B\}$, forman una base local en $x$.
+    \end{enumerate}
+\end{proposición}
+
+\begin{proposición}[Comparación de topologías por bases locales]
+    Sean $\tau, \tau'$ dos topologías en el mismo conjunto $X$. Supongamos que para cada punto $x \in X$ conocemos bases locales de entornos abiertos $\mathcal{B}_x$ y $\mathcal{B}'_x$ para $\tau$ y $\tau'$ respectivamente. Entonces $\tau$ es más fina que $\tau'$ (es decir, $\tau' \subset \tau$) si y sólo si para cada $B' \in \mathcal{B}'_x$ existe un $B \in \mathcal{B}_x$ tal que $x \in B \subset B'$.
+\end{proposición}
+
+\ejemplo{
+    En la recta real, la topología usual tiene como base local en $x$ los intervalos $(x - \varepsilon, x + \varepsilon)$, $\varepsilon > 0$. La topología de Sorgenfrey tiene como base local en $x$ los intervalos $[x, x + \varepsilon)$. Por el criterio anterior, $\tau_{\text{usual}} \subset \tau_{\text{Sorgenfrey}}$.
+}
+
+% Capítulo 3: Espacios métricos
+
+\subsection{Espacios métricos}
+
+Un modo muy frecuente de describir la idea de proximidad es por medio de una distancia.
+
+\begin{definición}[Distancia y espacio métrico]
+    Sea $X$ un conjunto. Una \textbf{distancia} sobre $X$ es una aplicación $d: X \times X \to \mathbb{R}$ que satisface las siguientes propiedades:
+    \begin{enumerate}
+        \item $d(x, y) \geq 0$ para cualesquiera $x, y \in X$.
+        \item $d(x, y) = d(y, x)$ para cualesquiera $x, y \in X$ \textnormal{(simetría)}.
+        \item Dados $x, y \in X$, $d(x, y) = 0 \iff x = y$.
+        \item $d(x, z) \leq d(x, y) + d(y, z)$ para todo $x, y, z \in X$ \textnormal{(desigualdad triangular)}.
+    \end{enumerate}
+    Un \textbf{espacio métrico} es un par $(X, d)$, donde $X$ es un conjunto y $d$ es una distancia sobre $X$.
+\end{definición}
+
+\ejemplo{
+    Sea $X$ un conjunto no vacío. La \textbf{distancia discreta} es $d(x, y) = \begin{cases} 0 & \text{si } x = y, \\ 1 & \text{si } x \neq y. \end{cases}$
+}
+
+\ejemplo{
+    En $X = \mathbb{R}^n$ las siguientes aplicaciones definen distancias:
+    $$d_1(x, y) = \sum_{i=1}^n |x_i - y_i|, \quad d_2(x,y) = \left(\sum_{i=1}^n (x_i - y_i)^2\right)^{1/2}, \quad d_\infty(x,y) = \max_{i} |x_i - y_i|.$$
+    La distancia $d_2$ es la distancia euclídea usual.
+}
+
+\ejemplo{
+    Sea $X = \mathcal{C}([a,b]) = \{f : [a,b] \to \mathbb{R} \mid f \text{ continua}\}$. Las siguientes aplicaciones definen distancias:
+    $$\varrho_\infty(f, g) = \max_{a \leq x \leq b} |f(x) - g(x)|, \quad \varrho_1(f, g) = \int_a^b |f(x) - g(x)|\, dx.$$
+}
+
+\begin{definición}[Norma y espacio normado]
+    Sea $X$ un espacio vectorial sobre $\mathbb{R}$ (o $\mathbb{C}$). Una \textbf{norma} sobre $X$ es una aplicación $\|\cdot\| : X \to \mathbb{R}$ verificando:
+    \begin{enumerate}
+        \item $\|x\| \geq 0$ para todo $x \in X$.
+        \item $\|x\| = 0 \iff x = 0$.
+        \item $\|\lambda x\| = |\lambda|\,\|x\|$ para todo $\lambda \in \mathbb{R}$ y $x \in X$.
+        \item $\|x + y\| \leq \|x\| + \|y\|$ para todo $x, y \in X$ (desigualdad triangular).
+    \end{enumerate}
+    Al par $(X, \|\cdot\|)$ se le llama \textbf{espacio vectorial normado}. En un espacio normado, $d(x, y) = \|x - y\|$ define una distancia.
+\end{definición}
+
+\subsection{Topología asociada a una distancia}
+
+\begin{teorema}
+    Sea $(X, d)$ un espacio métrico. Se define la \textbf{bola abierta} de centro $x \in X$ y radio $\varepsilon > 0$ como
+    $$B(x, \varepsilon) = \{y \in X \mid d(x, y) < \varepsilon\}.$$
+    La familia $\mathcal{B} = \{B(x, R) \mid x \in X,\, R > 0\}$ es base de una topología $\mathcal{T}_d$, llamada \textbf{topología métrica} inducida por $d$.
+\end{teorema}
+\begin{proof}
+    En primer lugar, $x \in B(x, R)$ para todo $x \in X$, así que $\mathcal{B}$ cubre $X$.
+
+    Sean $B_1 = B(x_1, R_1)$ y $B_2 = B(x_2, R_2)$ dos bolas, y sea $y \in B_1 \cap B_2$. Definimos $\varepsilon_i = R_i - d(y, x_i) > 0$. Para cualquier $z \in B(y, \varepsilon_i)$ tenemos:
+    $$d(z, x_i) \leq d(z, y) + d(y, x_i) < \varepsilon_i + d(y, x_i) = R_i.$$
+    Tomando $\varepsilon = \min\{\varepsilon_1, \varepsilon_2\} > 0$, se tiene $y \in B(y, \varepsilon) \subset B_1 \cap B_2$, verificando la condición de base.
+\end{proof}
+
+\begin{definición}[Espacio metrizable]
+    Decimos que un espacio topológico $X$ es \textbf{metrizable} si existe una distancia sobre $X$ tal que la topología inducida por dicha distancia coincide con la topología original de $X$.
+\end{definición}
+
+\begin{observación}
+    Tenemos la cadena de inclusiones estrictas:
+    $$\{\text{espacios vectoriales normados}\} \subsetneq \{\text{espacios métricos}\} \subsetneq \{\text{espacios topológicos}\}.$$
+\end{observación}
+
+\ejemplo{
+    Las distancias $d_1$ y $d_2$ en $\mathbb{R}^2$ dan lugar a la \textbf{misma topología}. Para ello, comparamos las normas $\|\cdot\|_1$ y $\|\cdot\|_2$: por la desigualdad triangular y Cauchy-Schwarz,
+    $$\|(x,y)\|_2 \leq \|(x,y)\|_1 \leq \sqrt{2}\,\|(x,y)\|_2,$$
+    de donde se concluye que las bolas abiertas de ambas distancias son comparables y generan la misma topología.
+}
+
+% Capítulo 4: Interior
+
+\subsection{Interior de un conjunto}
+
+Sea $(X, \tau)$ un espacio topológico y sea $A \subset X$ un subconjunto.
+
+\begin{definición}[Punto interior e interior]
+    Un \textbf{punto interior} de $A$ es un punto $x \in X$ tal que existe un entorno abierto $U_x \in \tau$ de $x$ tal que $x \in U_x \subset A$.
+
+    El \textbf{interior} de $A$ es el conjunto de todos sus puntos interiores. Lo denotaremos por $\mathrm{Int}(A)$ o $\overset{\circ}{A}$. Por definición es obvio que $\mathrm{Int}(A) \subset A$.
+\end{definición}
+
+\ejemplo{
+    \begin{itemize}
+        \item En $(\mathbb{R}^2, \tau_{\text{usual}})$, el interior de la bola cerrada $\overline{B}(x, \varepsilon)$ es la bola abierta $B(x, \varepsilon)$.
+        \item En $(\mathbb{R}, \tau_{\text{usual}})$, el interior de $A = \bigcup_{n \in \mathbb{N}} [1/n, n)$ es $\mathrm{Int}(A) = (0, +\infty)$.
+        \item En $(\mathbb{R}, \tau_{\text{cofin}})$, el interior del intervalo $A = (0, 1)$ es $\mathrm{Int}(A) = \emptyset$: no existe ningún abierto cofinito contenido en $(0,1)$, ya que todo abierto cofinito tiene complementario finito, que no puede contener el infinito complementario de $(0,1)$.
+    \end{itemize}
+}
+
+\begin{proposición}
+    Un conjunto es abierto si y sólo si todos sus puntos son interiores.
+\end{proposición}
+\begin{proof}
+    Si $U$ es abierto, para cada $x \in U$ tomamos $U_x = U$ y tenemos $x \in U_x = U \subset U$, así que todos sus puntos son interiores.
+
+    Recíprocamente, si para cada $x \in U$ encontramos $x \in U_x \subset U$, entonces $U = \bigcup_{x \in U} U_x$, que es unión de abiertos y por tanto abierto.
+\end{proof}
+
+\subsection{Propiedades del interior}
+
+\begin{proposición}[Propiedades del interior]
+    Se tiene:
+    \begin{enumerate}
+        \item $\mathrm{Int}(\emptyset) = \emptyset$ y $\mathrm{Int}(X) = X$.
+        \item $\mathrm{Int}(A \cap B) = \mathrm{Int}(A) \cap \mathrm{Int}(B)$.
+        \item $\mathrm{Int}(A) \cup \mathrm{Int}(B) \subset \mathrm{Int}(A \cup B)$ (la inclusión puede ser estricta).
+    \end{enumerate}
+\end{proposición}
+\begin{proof}
+    \begin{enumerate}
+        \item El vacío no tiene puntos, luego $\mathrm{Int}(\emptyset) = \emptyset$. Todo punto de $X$ es interior, luego $\mathrm{Int}(X) = X$.
+        \item Si $x \in \mathrm{Int}(A \cap B)$, hay un entorno $U_x \subset A \cap B$, por lo que $U_x \subset A$ y $U_x \subset B$, así $x \in \mathrm{Int}(A) \cap \mathrm{Int}(B)$. Recíprocamente, si $x \in \mathrm{Int}(A) \cap \mathrm{Int}(B)$, hay entornos $U_x \subset A$ y $V_x \subset B$; entonces $U_x \cap V_x$ es un entorno abierto contenido en $A \cap B$.
+        \item Si $x \in \mathrm{Int}(A)$, hay $U_x \subset A \subset A \cup B$, luego $x \in \mathrm{Int}(A \cup B)$. Análogamente para $\mathrm{Int}(B)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{observación}
+    En la recta usual, tomando $A = [0,1]$ y $B = [1,2]$ tenemos $\mathrm{Int}(A) = (0,1)$, $\mathrm{Int}(B) = (1,2)$ e $\mathrm{Int}(A \cup B) = (0,2)$, por lo que el interior de la unión puede ser estrictamente mayor que la unión de los interiores.
+\end{observación}
+
+\begin{proposición}
+    \begin{enumerate}
+        \item $\mathrm{Int}(A) \subset A$.
+        \item $\mathrm{Int}(A)$ siempre es abierto.
+        \item $\mathrm{Int}(A)$ es el \textbf{mayor abierto} contenido en $A$.
+    \end{enumerate}
+\end{proposición}
+\begin{proof}
+    \begin{enumerate}
+        \item Si $x \in \mathrm{Int}(A)$, existe $U_x \subset A$, en particular $x \in A$.
+        \item Si $x \in \mathrm{Int}(A)$, existe un entorno abierto $U_x \subset A$. Para cualquier $y \in U_x$, como $U_x$ es un entorno abierto de $y$ contenido en $A$, tenemos $y \in \mathrm{Int}(A)$. Por tanto $U_x \subset \mathrm{Int}(A)$, luego $x$ es interior de $\mathrm{Int}(A)$, y como esto es cierto para todo $x$, $\mathrm{Int}(A)$ es abierto.
+        \item Si $W$ es un abierto contenido en $A$ y $x \in W$, se tiene $x \in W \subset A$, luego $x \in \mathrm{Int}(A)$. Por tanto $W \subset \mathrm{Int}(A)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{proposición}
+    Un conjunto $U \subset X$ es abierto si y sólo si $U = \mathrm{Int}(U)$.
+\end{proposición}
+
+\begin{corolario}
+    $\mathrm{Int}(\mathrm{Int}(A)) = \mathrm{Int}(A)$.
+\end{corolario}
+
+\subsection{Cálculo del interior usando una base}
+
+\begin{proposición}
+    Supongamos que conocemos una base $\mathcal{B}$ de la topología $\tau$. Entonces basta comprobar la condición de punto interior usando solamente abiertos básicos. Es decir, $x \in \mathrm{Int}(A)$ si y sólo si existe $B \in \mathcal{B}$ tal que $x \in B \subset A$.
+\end{proposición}
+
+\ejemplo{
+    En $\mathbb{R}$ con la topología de Sorgenfrey, el interior del intervalo $A = [0, 1]$ es $\mathrm{Int}(A) = [0, 1)$. En efecto, cualquier punto $0 \leq x < 1$ es interior tomando el básico $[x, x + \varepsilon) \subset [0,1]$ con $\varepsilon$ suficientemente pequeño. En cambio, el punto $x = 1$ no es interior, ya que cualquier básico $[1, b)$ contiene puntos mayores que $1$.
+}
+
+% Capítulo 5: Clausura y frontera
+
+\subsection{Clausura de un conjunto}
+
+Sea $(X, \tau)$ un espacio topológico. Sea $A \subset X$ un subconjunto.
+
+\begin{definición}[Punto adherente y clausura]
+    Un punto $x \in X$ es \textbf{adherente} a $A$ si cualquier entorno abierto $U_x$ de $x$ corta a $A$, es decir, $U_x \cap A \neq \emptyset$.
+
+    El conjunto de puntos adherentes se denotará por $\overline{A}$ o $\mathrm{Cl}(A)$; se llama la \textbf{clausura} o \textbf{adherencia} del conjunto $A$. De la definición se sigue que $A \subset \mathrm{Cl}(A)$.
+\end{definición}
+
+\begin{proposición}[Uso de una base]
+    Si $\mathcal{B}$ es una base de la topología, $x$ es adherente a $A$ si y sólo si todo entorno básico $B_x \in \mathcal{B}$ que contenga a $x$ corta a $A$.
+\end{proposición}
+
+\begin{lema}
+    Para cualquier $A \subset X$, se tiene $X \setminus \mathrm{Cl}(A) = \mathrm{Int}(X \setminus A)$.
+\end{lema}
+\begin{proof}
+    $(\supset)$: Si $x \in X \setminus \mathrm{Cl}(A)$, hay un entorno $U_x$ de $x$ con $U_x \cap A = \emptyset$, es decir $U_x \subset X \setminus A$, por lo que $x \in \mathrm{Int}(X \setminus A)$.
+
+    $(\subset)$: Si $x \in \mathrm{Int}(X \setminus A)$, hay un entorno $U_x \subset X \setminus A$, luego $U_x \cap A = \emptyset$ y $x \notin \mathrm{Cl}(A)$.
+\end{proof}
+
+\begin{proposición}[Axiomas de Kuratowski]
+    Se tiene:
+    \begin{enumerate}
+        \item $\mathrm{Cl}(\emptyset) = \emptyset$ y $\mathrm{Cl}(X) = X$.
+        \item $\mathrm{Cl}(\mathrm{Cl}(A)) = \mathrm{Cl}(A)$.
+        \item $\mathrm{Cl}(A \cup B) = \mathrm{Cl}(A) \cup \mathrm{Cl}(B)$.
+        \item $\mathrm{Cl}(A \cap B) \subset \mathrm{Cl}(A) \cap \mathrm{Cl}(B)$.
+    \end{enumerate}
+\end{proposición}
+\begin{proof}
+    Usando el Lema $X \setminus \mathrm{Cl}(A) = \mathrm{Int}(X \setminus A)$ y las propiedades del interior:
+    \begin{enumerate}
+        \item $X \setminus \mathrm{Cl}(\emptyset) = \mathrm{Int}(X) = X$, luego $\mathrm{Cl}(\emptyset) = \emptyset$.
+        \item $X \setminus \mathrm{Cl}(A \cup B) = \mathrm{Int}((X \setminus A) \cap (X \setminus B)) = \mathrm{Int}(X \setminus A) \cap \mathrm{Int}(X \setminus B) = (X \setminus \mathrm{Cl}(A)) \cap (X \setminus \mathrm{Cl}(B)) = X \setminus (\mathrm{Cl}(A) \cup \mathrm{Cl}(B))$, luego $\mathrm{Cl}(A \cup B) = \mathrm{Cl}(A) \cup \mathrm{Cl}(B)$.
+        \item Las demás son análogas.
+    \end{enumerate}
+\end{proof}
+
+\ejemplo{
+    En la recta usual, la clausura de $A = \{1/n : n \in \mathbb{Z}^+\}$ es $\mathrm{Cl}(A) = A \cup \{0\}$. En efecto, cualquier entorno de $0$ contiene algún $1/n$ tomando $n > 1/\varepsilon$. Por otra parte, si $x \notin A$ y $x \neq 0$, podemos encontrar entornos de $x$ que no cortan a $A$.
+}
+
+\subsection{Conjuntos cerrados}
+
+\begin{definición}[Conjunto cerrado]
+    Un conjunto $F \subset X$ se dice \textbf{cerrado} si su complementario $X \setminus F$ es abierto.
+\end{definición}
+
+\begin{proposición}
+    \begin{enumerate}
+        \item $\emptyset$ y $X$ son cerrados.
+        \item La unión finita de cerrados es un cerrado.
+        \item La intersección arbitraria de cerrados es un cerrado.
+    \end{enumerate}
+\end{proposición}
+\begin{proof}
+    Se deducen de las propiedades de los abiertos usando las leyes de De Morgan.
+\end{proof}
+
+\begin{proposición}
+    Un conjunto $F \subset X$ es cerrado si y sólo si $\mathrm{Cl}(F) = F$.
+\end{proposición}
+
+\begin{proposición}
+    \begin{enumerate}
+        \item $A \subset \mathrm{Cl}(A)$.
+        \item $\mathrm{Cl}(A)$ es un cerrado.
+        \item $\mathrm{Cl}(A)$ es el \textbf{menor cerrado} que contiene a $A$.
+    \end{enumerate}
+\end{proposición}
+
+\subsection{Frontera}
+
+\begin{definición}[Frontera]
+    La \textbf{frontera} de $A \subset X$ es el conjunto $\mathrm{Fr}(A)$ de los puntos $x \in X$ tales que todo entorno abierto $U_x$ corta a $A$ y a su complementario $X \setminus A$. Equivalentemente:
+    $$\mathrm{Fr}(A) = \mathrm{Cl}(A) \setminus \mathrm{Int}(A) = \mathrm{Cl}(A) \cap \mathrm{Cl}(X \setminus A).$$
+    La clausura se descompone como unión disjunta: $\mathrm{Cl}(A) = \mathrm{Int}(A) \cup \mathrm{Fr}(A)$.
+\end{definición}
+
+\begin{proposición}
+    \begin{enumerate}
+        \item La frontera $\mathrm{Fr}(A)$ es un conjunto cerrado.
+        \item $\mathrm{Fr}(A) = \mathrm{Fr}(X \setminus A)$.
+    \end{enumerate}
+\end{proposición}
+\begin{proof}
+    Como $\mathrm{Fr}(A) = \mathrm{Cl}(A) \cap \mathrm{Cl}(X \setminus A)$, es intersección de dos cerrados, luego cerrado. La segunda afirmación se sigue directamente de la definición, porque el complementario de $X \setminus A$ es $A$.
+\end{proof}
+
+\ejemplo{
+    En $\mathbb{R}^n$, la frontera de la bola abierta $B(O, R)$ es la esfera $S(O, R) = \{x \in \mathbb{R}^n : |x| = R\}$.
+}

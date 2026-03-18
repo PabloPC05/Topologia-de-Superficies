@@ -1,0 +1,201 @@
+﻿\section{Nuevas construcciones}
+
+% Capítulo 11: Topología inicial
+
+\subsection{Topología inicial}
+
+Dada una aplicación $f: X \to (Y, \tau_Y)$ desde un conjunto $X$ a un espacio topológico, puede haber varias topologías en $X$ que hagan que $f$ sea continua.
+
+\begin{definición}[Topología inicial]
+    Llamamos \textbf{topología inicial} o \textbf{topología inducida} por $f$ a
+    $$f^*\tau_Y = \{f^{-1}(V) \subset X : V \in \tau_Y\}.$$
+\end{definición}
+
+\ejemplo{
+    La topología relativa es la topología inicial para la inclusión $i_A: A \hookrightarrow X$.
+}
+
+\begin{proposición}
+    La topología inicial es la \textbf{menos fina} (tiene menos abiertos) de las topologías en $X$ que hacen que $f$ sea continua.
+\end{proposición}
+\begin{proof}
+    En primer lugar, $f^*\tau_Y$ hace $f$ continua: si $V \in \tau_Y$ entonces $f^{-1}(V) \in f^*\tau_Y$ por definición.
+
+    Sea $\tau_X$ cualquier topología en $X$ que haga $f$ continua. Entonces $f^*\tau_Y \subset \tau_X$, porque si $U = f^{-1}(V) \in f^*\tau_Y$ con $V \in \tau_Y$, entonces $U \in \tau_X$ por ser $f: (X, \tau_X) \to (Y, \tau_Y)$ continua.
+\end{proof}
+
+\begin{proposición}[Propiedad universal de la topología inicial]
+    Sea $\tau_X = f^*\tau_Y$ la topología inicial en $X$ para $f: X \to (Y, \tau_Y)$. Entonces una aplicación $g: (Z, \tau_Z) \to (X, \tau_X)$ es continua si y sólo si la composición $f \circ g$ es continua.
+\end{proposición}
+\begin{proof}
+    $(\Rightarrow)$: $f \circ g$ es composición de continuas.
+
+    $(\Leftarrow)$: Si $f \circ g$ es continua, dado un abierto $U = f^{-1}(V) \in \tau_X$, tenemos $g^{-1}(U) = g^{-1}(f^{-1}(V)) = (f \circ g)^{-1}(V) \in \tau_Z$.
+\end{proof}
+
+\begin{observación}
+    El \textbf{espacio de Sierpiński} es $S = \{0, 1\}$ dotado de la topología $\tau_S = \{\emptyset, S, \{1\}\}$. La topología $\tau_X$ de cualquier espacio topológico $X$ es la topología inicial para la familia de todas las aplicaciones continuas $X \to S$.
+\end{observación}
+
+% Capítulo 12: Topología producto
+
+\subsection{Topología producto}
+
+\begin{definición}[Topología producto]
+    Si $(X,\tau_X)$ e $(Y,\tau_Y)$ son espacios topológicos, la familia
+    $$\mathcal{B}=\{U\times V: U\in\tau_X,\ V\in\tau_Y\}$$
+    es una base de una topología en $X\times Y$, llamada \textbf{topología producto} y denotada por $\tau_X\times\tau_Y$.
+\end{definición}
+
+\begin{proposición}
+    Si $\mathcal{B}_X$ y $\mathcal{B}_Y$ son bases de $X$ e $Y$, entonces
+    $$\mathcal{B}_X\times\mathcal{B}_Y=\{B\times B': B\in\mathcal{B}_X, B'\in\mathcal{B}_Y\}$$
+    es base de $\tau_X\times\tau_Y$.
+\end{proposición}
+
+\begin{proposición}
+    Las proyecciones
+    $$p_1:X\times Y\to X,\qquad p_2:X\times Y\to Y$$
+    son continuas, abiertas y sobreyectivas.
+\end{proposición}
+
+\begin{proposición}[Propiedad universal]
+    Una aplicación $h:Z\to X\times Y$ es continua si y sólo si $p_1\circ h$ y $p_2\circ h$ son continuas.
+\end{proposición}
+\begin{proof}
+    Si $h$ es continua, las composiciones con $p_1,p_2$ también lo son. Recíprocamente, para un básico $U\times V$,
+    $$h^{-1}(U\times V)=(p_1\circ h)^{-1}(U)\cap(p_2\circ h)^{-1}(V),$$
+    que es abierto.
+\end{proof}
+
+% Capítulo 13: Topología Suma
+
+\subsection{Suma topológica}
+
+\begin{definición}[Unión disjunta y topología suma]
+    La unión disjunta de conjuntos es
+    $$X\sqcup Y=(X\times\{1\})\cup(Y\times\{2\}).$$
+    Si $(X,\tau_X)$ e $(Y,\tau_Y)$ son espacios topológicos, la \textbf{topología suma} en $X\sqcup Y$ está formada por los $W\subset X\sqcup Y$ tales que $W\cap X\in\tau_X$ y $W\cap Y\in\tau_Y$.
+\end{definición}
+
+\begin{proposición}
+    Las inyecciones canónicas
+    $$i_1:X\to X\sqcup Y,\quad i_2:Y\to X\sqcup Y$$
+    son homeomorfismos con su imagen.
+\end{proposición}
+
+\begin{proposición}
+    Una aplicación $f:X\sqcup Y\to Z$ es continua si y sólo si $f\circ i_1$ y $f\circ i_2$ son continuas.
+\end{proposición}
+
+\begin{proposición}[Propiedad universal de la suma]
+    Dadas aplicaciones continuas $f_1:X\to Z$ y $f_2:Y\to Z$, existe una única continua
+    $$h:X\sqcup Y\to Z$$
+    tal que $h\circ i_1=f_1$ y $h\circ i_2=f_2$.
+\end{proposición}
+
+% Capítulo 14: Topología final y relaciones de equivalencia
+
+\subsection{Relaciones de equivalencia}
+
+\begin{definición}[Relación de equivalencia]
+    Una relación $\sim$ en $X$ es de equivalencia si es reflexiva, simétrica y transitiva.
+\end{definición}
+
+\begin{definición}[Clase de equivalencia y cociente]
+    La clase de $x\in X$ es $[x]=\{y\in X:y\sim x\}$. El conjunto cociente es
+    $$X/\sim=\{[x]:x\in X\}.$$
+    La proyección canónica es $\pi:X\to X/\sim$, $\pi(x)=[x]$.
+\end{definición}
+
+\begin{proposición}
+    Las clases de equivalencia forman una partición de $X$, y toda partición define una relación de equivalencia.
+\end{proposición}
+
+\subsection{Topología final}
+
+\begin{definición}[Topología final para una aplicación]
+    Sea $f:(X,\tau_X)\to Y$ una aplicación. La topología final en $Y$ inducida por $f$ es
+    $$\tau_f=\{V\subset Y: f^{-1}(V)\in\tau_X\}.$$
+\end{definición}
+
+\begin{proposición}
+    $\tau_f$ es la topología más fina sobre $Y$ que hace continua a $f$.
+\end{proposición}
+
+% Capítulo 15: Cocientes
+
+\subsection{Espacio cociente}
+
+\begin{definición}[Topología cociente]
+    Sea $f:(X,\tau_X)\to Y$ sobreyectiva. La \textbf{topología cociente} en $Y$ es
+    $$\tau_Y=\{V\subset Y: f^{-1}(V)\in\tau_X\}.$$
+    Con esta topología, $f$ se llama \textbf{aplicación cociente}.
+\end{definición}
+
+\begin{proposición}
+    Si $f:X\to Y$ es cociente y $g:Y\to Z$ es una aplicación, entonces $g$ es continua si y sólo si $g\circ f$ es continua y $g$ está bien definida sobre clases cuando proceda.
+\end{proposición}
+
+\begin{proposición}[Propiedad universal del cociente]
+    Sea $\pi:X\to X/\sim$ la proyección canónica. Para toda aplicación $h:X\to Z$ constante en clases de equivalencia existe una única aplicación
+    $$\bar h:X/\sim\to Z$$
+    tal que $h=\bar h\circ \pi$. Además, $\bar h$ es continua si y sólo si $h$ es continua.
+\end{proposición}
+
+\subsection{Identificaciones}
+
+\begin{observación}
+    Construcciones como el cilindro, el toro, la banda de Möbius o el plano proyectivo se obtienen como cocientes mediante identificaciones en el borde de polígonos.
+\end{observación}
+
+% Capítulo 16: Espacios cociente
+
+\subsection{Teorema del espacio cociente}
+
+\begin{teorema}
+    Sea $f: X \to Y$ una identificación y sea $R_f$ la relación de equivalencia asociada ($xR_fy \iff f(x) = f(y)$). Entonces el espacio cociente $X/R_f$ es homeomorfo a $Y$.
+\end{teorema}
+\begin{proof}
+    Definimos $\bar{f}: X/R_f \to Y$ por $\bar{f}([x]) = f(x)$. Esta aplicación es biyectiva (Prop. del capítulo anterior).
+
+    \textit{Continuidad de $\bar{f}$}: La composición $\bar{f} \circ \pi = f$ es continua. Como $\pi$ es una identificación, por la propiedad universal, $\bar{f}$ es continua.
+
+    \textit{Continuidad de $\bar{f}^{-1}$}: La composición $\bar{f}^{-1} \circ f = \pi$ es continua. Como $f$ es una identificación, por la propiedad universal, $\bar{f}^{-1}$ es continua.
+\end{proof}
+
+\begin{observación}[Uso práctico]
+    En la práctica: nos dan un espacio $X$ y una relación $R$. Creemos que $X/R \cong Y$ para algún espacio conocido $Y$. Para confirmarlo, buscamos una identificación $f: X \to Y$ cuya relación asociada sea $R$. Entonces $\bar{f}: X/R \to Y$ es un homeomorfismo.
+\end{observación}
+
+\ejemplo{
+    Sea $S^1 = \{z \in \mathbb{C} : |z| = 1\}$ y $f: S^1 \to S^1$ dada por $f(z) = z^2$. La relación de equivalencia asociada identifica $z \sim -z$. La aplicación $f$ es continua, sobreyectiva, y como $S^1$ es compacto y Hausdorff es una identificación. Por tanto $S^1/\{z \sim -z\} \cong S^1$.
+}
+
+\ejemplo{
+    La aplicación $f: [0,1] \to S^1$ dada por $f(t) = e^{2\pi it} = \cos(2\pi t) + i\sin(2\pi t)$ es continua, sobreyectiva. Su relación asociada identifica $0 \sim 1$. Como $[0,1]$ es compacto y $S^1$ Hausdorff, $f$ es una identificación. Por tanto $[0,1]/\{0 \sim 1\} \cong S^1$.
+}
+
+% Capítulo 17: Colapsos
+
+\subsection{Colapsos}
+
+\begin{definición}[Colapso]
+    Sea $X$ un espacio topológico y sea $A \subset X$ un subespacio. Denotamos por $X/A$ el espacio cociente de la siguiente relación de equivalencia: cada punto de $X$ se relaciona sólo consigo mismo, excepto los puntos de $A$, que se relacionan todos entre sí. Es decir,
+    $$x \sim y \iff x = y \;\text{ ó }\; x, y \in A.$$
+    Al espacio $X/A$ lo llamamos el \textbf{colapso} de $A$ en $X$.
+\end{definición}
+
+\ejemplo{
+    En el cilindro $X = S^1 \times [0,1]$, consideramos el borde superior $A = S^1 \times \{1\}$. Entonces $X/A$ es un \textbf{cono}, cuyo vértice es la clase $[A]$.
+}
+
+\ejemplo{
+    En $X = [0, 2]$ consideramos $A = [1, 2]$. Al colapsar $A$ obtenemos el intervalo $[0, 1]$. En efecto, la aplicación $f: [0,2] \to [0,1]$ dada por $f(x) = x$ para $x \in [0,1]$ y $f(x) = 1$ para $x \in [1,2]$ es continua, sobreyectiva, y cerrada (luego es una identificación), con relación asociada la del colapso de $[1,2]$.
+}
+
+\ejemplo{
+    El \textbf{cono} sobre $X$ es $C(X) = (X \times [0,1])/(X \times \{1\})$. Demostraremos que el cono sobre $S^1$ es homeomorfo al disco cerrado $D^2 = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1\}$.
+
+    La aplicación $f: S^1 \times [0,1] \to D^2$ dada por $f(z, t) = (1-t)z$ (donde $z$ se toma como vector en $\mathbb{R}^2$) es continua y sobreyectiva. La relación asociada identifica exactamente $S^1 \times \{1\}$ a un punto (el origen). Como el dominio es compacto y $D^2$ es Hausdorff, $f$ es una identificación, y por tanto $C(S^1) \cong D^2$.
+}

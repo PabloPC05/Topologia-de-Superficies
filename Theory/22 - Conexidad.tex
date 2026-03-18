@@ -22,20 +22,20 @@
         $\leftarrow$: Supongamos que $X$ no es conexo, es decir, existe una separación $U|V$ de $X$ distinta de la trivial. Entonces $U$ y $V$ son abiertos y cerrados distintos de $\emptyset$ y $X$.
         \item $\rightarrow$: Supongamos que $X$ es conexo, pero existe $f: X \to \{0, 1\}$ continua pero no constante. Eso significa que podemos definir dos conjuntos: 
     $$U = f^{-1}(\{0\}) \text{ y } V = f^{-1}(\{1\}).$$
-    Como ambos $\{0\}$ y $\{1\}$ son abiertos y $f$ es continua, entonce $u$ y $V$ son abiertos con $U \cap V = \emptyset$ y $U \cup V = X$, es decir, $U|V$ es una separación de $X$ distinta de la trivial, lo que contradice la hipótesis de que $X$ es conexo. \\
+    Como ambos $\{0\}$ y $\{1\}$ son abiertos y $f$ es continua, entonces $U$ y $V$ son abiertos con $U \cap V = \emptyset$ y $U \cup V = X$, es decir, $U|V$ es una separación de $X$ distinta de la trivial, lo que contradice la hipótesis de que $X$ es conexo. \\
     $\leftarrow$: Supongamos que toda aplicación continua de $X$ en $\{0, 1\}$ es constante, pero $X$ no es conexo. Entonces existe una separación $U|V$ de $X$ distinta de la trivial. Definamos $f: X \to \{0, 1\}$ por $$f(x) = \begin{cases} 0 & \text{si } x \in U \\ 1 & \text{si } x \in V \end{cases}$$
     La aplicación $f$ es continua, pero no constante, lo que contradice la hipótesis.
     \item $\rightarrow$: Si el espacio $X$ ya es conexo, dados dos puntos cualesquiera $x, y \in X$, el conjunto $X$ es un subconjunto conexo de $X$ que los contiene. \\
     $\leftarrow$: Supongamos que para todo par de puntos $x, y \in X$ existe un subconjunto conexo $C \subseteq X$ con $x, y \in C$, pero que $X$ no es conexo. Entonces existe una separación no trivial $U|V$ de $X$. Como $U \neq \emptyset$ y $V \neq \emptyset$, podemos elegir $x \in U$ e $y \in V$. Por hipótesis, existe $C \subseteq X$ conexo con $x, y \in C$. Consideremos $U_C = C \cap U$ y $V_C = C \cap V$: son abiertos en $C$ (por la topología del subespacio), disjuntos, $U_C \cup V_C = C \cap (U \cup V) = C$, y ninguno es vacío pues $x \in U_C$ e $y \in V_C$. Luego $U_C|V_C$ es una separación no trivial de $C$, lo que contradice que $C$ es conexo.
     \end{enumerate}
 \end{proof}
-\ejemplo{Algunos ejemplos de espacios conexos son los triviales, discretos, Sierpinski, Kolmogorov, $\R$, $\Q$.}
+\ejemplo{Algunos ejemplos de espacios conexos son los triviales, Sierpinski, Kolmogorov y $\R$. Nótese que $\Q$ con la topología usual \textbf{no} es conexo, ya que $\Q = (\Q \cap (-\infty, \sqrt{2})) \cup (\Q \cap (\sqrt{2}, +\infty))$ es una separación no trivial.}
 \begin{proposición}
     Sea $\tau$ y $\tau'$ dos topologías en un conjunto $X$ con $\tau \subset \tau'$. Si $(X, \tau')$ es conexo, entonces $(X, \tau)$ es conexo. \\
     Es decir, la conexidad se conserva al debilitar la topología.
 \end{proposición}
 \begin{proof}
-    Sean $\tau, \tau^{\prime}$ dos topologías sobre un mismo conjunto tales que $\tau \subset \tau^{\prime}$, pero supongamos que $(X, \tau^{\prime}$ es conexo, pero $(X, \tau)$ no lo es. Entonces sabemos que existe una separación $U|V$ de $(X, \tau)$ distinta de la trivial. No obstante, dado que $\tau \subset \tau^{\prime}$, tenemos que $U, V \in \tau^{\prime}$, por lo que $U|V$ es una separación de $(X, \tau^{\prime})$ distinta de la trivial, lo que contradice la hipótesis de que $(X, \tau^{\prime})$ es conexo.
+    Sean $\tau, \tau^{\prime}$ dos topologías sobre un mismo conjunto tales que $\tau \subset \tau^{\prime}$, pero supongamos que $(X, \tau^{\prime})$ es conexo, pero $(X, \tau)$ no lo es. Entonces sabemos que existe una separación $U|V$ de $(X, \tau)$ distinta de la trivial. No obstante, dado que $\tau \subset \tau^{\prime}$, tenemos que $U, V \in \tau^{\prime}$, por lo que $U|V$ es una separación de $(X, \tau^{\prime})$ distinta de la trivial, lo que contradice la hipótesis de que $(X, \tau^{\prime})$ es conexo.
 \end{proof}
 \begin{proposición}
     Si $U|V$ es una separación de $X$ y $A \subset X$ es conexo, entonces $A \subset U$ o $A \subset V$.
@@ -43,10 +43,10 @@
 \begin{proof}
     Sean $U, V \in \tau$ tales que $U|V$ es una separación de $X$ y sea $A \subset X$ conexo, pero supongamos que $A \cap V \neq \emptyset$ y $A \cap U \neq \emptyset$. Por tanto podemos definir 
     $$U_A = A \cap U \text{ y } V_A = A \cap V.$$
-    Ambos $U_A$ y $V_A$ son abiertos en $A$, por ser una topología relativa. Y dado que son una separación en $X$, se ha de cumplir que $U_A \cup V_A = A \cap (U \cup V) = A$. No obstante, tenemos que $A$ es conexo, por lo que se ha de daar que $U_A = A$ y $V_A = \emptyset$ (o viceversa), lo que contradice la hipótesis de que $A \subset U$ y $A \subset V$.
+    Ambos $U_A$ y $V_A$ son abiertos en $A$, por ser una topología relativa. Y dado que son una separación en $X$, se ha de cumplir que $U_A \cup V_A = A \cap (U \cup V) = A$. No obstante, tenemos que $A$ es conexo, por lo que se ha de dar que $U_A = A$ y $V_A = \emptyset$ (o viceversa), lo que contradice la hipótesis de que $A \subset U$ y $A \subset V$.
 \end{proof}
 \begin{proposición}
-    Si $A \subset X$ es un conjunto conexo y $A \subset B \subset Cl{A}$, entonces $B$ es conexo.
+    Si $A \subset X$ es un conjunto conexo y $A \subset B \subset \mathrm{Cl}(A)$, entonces $B$ es conexo.
 \end{proposición}
 \begin{proof}
     Supongamos que bajo las condiciones propuestas, $B$ es disconexo, entonces existe una separación $U|V$ de $B$ distinta de la trivial. Por tanto, $U \cap A$ y $V \cap A$ son abiertos en $A$, disjuntos, $A \cap (U \cup V) = A$, y ninguno es vacío, lo que contradice que $A$ es conexo.
@@ -61,14 +61,14 @@
     Pero como $A_{\mu} \cap U$ y $A_{\mu} \cap V$ son abiertos en $A_{\mu}$, disjuntos, y $A_{\mu}$ es conexo, se ha de cumplir que $A_{\mu} \subset U$ (dado que $x_0 \in U$). Dado que esto se cumple para cada $\mu \in M$, se ha de cumplir que $\bigcup_{\mu \in M} A_\mu \subset U$, lo que contradice la hipótesis de que $U|V$ es una separación de $\bigcup_{\mu \in M} A_\mu$ distinta de la trivial.
 \end{proof}
 \begin{proposición}
-    Si $A, B \subset X$ son conexos y $Cl(A) \cap B \neq \emptyset$, entonces $A \cup B$ es conexo.
+    Si $A, B \subset X$ son conexos y $\mathrm{Cl}(A) \cap B \neq \emptyset$, entonces $A \cup B$ es conexo.
 \end{proposición}
 \begin{proof}
-    Bajo las condiciones propuestas supongamos que $A \cup B$ es disconexo, entonces existe una separación $U|V$ de $A \cup B$ distinta de la trivial. Esto implica que 
+    Bajo las condiciones propuestas supongamos que $A \cup B$ es disconexo, entonces existe una separación $U|V$ de $A \cup B$ distinta de la trivial. Esto implica que
     $$\begin{cases} A = (A \cap U) \cup (A \cap V) \\ B = (B \cap U) \cup (B \cap V) \end{cases}$$
-    Pero como $A \cap U$ y $A \cap V$ son abiertos en $A$, disjuntos, y $A$ es conexo, se ha de cumplir que $A \subset U$ o $A \subset V$, supongamos que $A \subset U$. Asimismo, debemos suponer que $B \subset V$ (ya que en caso contrario tendriamos que $B \subset U$ y habríamos acabado $A \cup B \subset U$). Ahora, dado que $Cl(A) \cap B \neq \emptyset$, existe $x_0 \in X$ tal que $x_0 \in Cl(A)$ y $x_0 \in B$ y por tanto $x_0 \in B \subset V$. Pero teníamos que $U, V \in \tau_{A \cup B}$, por lo que $\exists W \in \tau$ tal que 
+    Pero como $A \cap U$ y $A \cap V$ son abiertos en $A$, disjuntos, y $A$ es conexo, se ha de cumplir que $A \subset U$ o $A \subset V$, supongamos que $A \subset U$. Asimismo, debemos suponer que $B \subset V$ (ya que en caso contrario tendríamos que $B \subset U$ y habríamos acabado $A \cup B \subset U$). Ahora, dado que $\mathrm{Cl}(A) \cap B \neq \emptyset$, existe $x_0 \in X$ tal que $x_0 \in \mathrm{Cl}(A)$ y $x_0 \in B$ y por tanto $x_0 \in B \subset V$. Pero teníamos que $U, V \in \tau_{A \cup B}$, por lo que $\exists W \in \tau$ tal que
     $$V = W \cap (A \cup B)$$
-    Entonces tenemos que $x_0 \in W$, por lo que, por la definición de clausura tenemos que $W \cap A \neq \emptyset \iff \exists y \in W \cap A$. Y esto signfica que $y \in A \cup B$ por lo que $y \in W \cap (A \cup B) \implies y \in V$. Pero habíamos supuesto que $A \subset U$, por lo que $y \in A \subset U$, lo que contradice que $U$ y $V$ son disjuntos.
+    Entonces tenemos que $x_0 \in W$, por lo que, por la definición de clausura tenemos que $W \cap A \neq \emptyset \iff \exists y \in W \cap A$. Y esto significa que $y \in A \cup B$ por lo que $y \in W \cap (A \cup B) \implies y \in V$. Pero habíamos supuesto que $A \subset U$, por lo que $y \in A \subset U$, lo que contradice que $U$ y $V$ son disjuntos.
 \end{proof}
 \ejemplo{
     Estúdiese la conexidad de los siguientes subespacios del plano usual:
@@ -96,7 +96,7 @@
     Todo cociente de un conexo es conexo.
 \end{corolario}
 \begin{proof}
-    Sea $X$ un espacio conexo y $X/\sim$ un cociente de $X$. Entonces, por definición de cociente, existe una aplicación continua y sobreyectiva $f \to X/\sim$ tal que $f(x) = [x]$ para cada $x \in X$. Por la proposición anterior, $X/\sim$ es conexo.
+    Sea $X$ un espacio conexo y $X/\sim$ un cociente de $X$. Entonces, por definición de cociente, existe una aplicación continua y sobreyectiva $f: X \to X/\sim$ tal que $f(x) = [x]$ para cada $x \in X$. Por la proposición anterior, $X/\sim$ es conexo.
 \end{proof}
 \begin{teorema}[Teorema de Bolzano o teorema del valor intermedio]
     Sean $X$ conexo, $f \colon X \to \R$ continua y $x, y \in X$ tales que $f(x) < f(y)$. Entonces, para cada $t \in \R$ con $f(x) < t < f(y)$, existe $z \in X$ tal que $f(z) = t$.
@@ -143,7 +143,7 @@
 \begin{proof}
     Sea $A \subset X$ un conjunto conexo no vacío. Tomemos $x \in A$. Por la definición de componente conexa, existe una componente conexa $C(x)$ que contiene al punto. Dado que $A$ es un conjunto conexo y contiene al punto, $C(X)$ es la unión de todos los conjuntos conexos que contienen a $x$, por lo que se deduce que
     $$A \subset C(x)$$
-    Esto prueba que $A$ estrá contenido en al menos una componente conexa. \\
+    Esto prueba que $A$ está contenido en al menos una componente conexa. \\
     Ahora veamos la unicidad: Supongamos que $A$ está contenido en dos componentes conexas, $C_1$ y $C_2$. Como $A$ no es vacío, existe $a \in A$ tal que $a \in C_1$ y $a \in C_2$. Por lo tanto, $C_1 \cap C_2 \neq \emptyset$ y dado que son maximales, al compartir un punto han de ser iguales, es decir, $C_1 = C_2$.
 \end{proof}
 \begin{corolario}
@@ -187,16 +187,16 @@
     Las componentes conexas de un espacio $X$ son cerradas en $X$.
 \end{proposición}
 \begin{proof}
-    Sea $C$ una componente conexa de $X$. Sabemos que un conjunto es cerrado si y solo si $A = Cl(A)$, por lo que basta con probar que $C = Cl(C)$. Sabemos por una proposición anterior que si $A$ es conexo, entonces cualquier conjunto $B$ con $A \subset B \subset Cl(A)$ es conexo. 
-    En particular, si tomamos $A = C$ y $B = Cl(C)$, entonces el teorema nos dice que $Cl(C)$ es conexo. Pero por la definición de maximalidad de $C$, tenemos que no puede exitir ningún conjunto conexo que contenga a $C$ y sea más grande que él. Por tanto, tenemos que $Cl(C)$ es conexo y que $C \subset Cl(C)$, por lo que se ha de dar necesariamente que $C = Cl(C)$, es decir, $C$ es cerrado.
+    Sea $C$ una componente conexa de $X$. Sabemos que un conjunto es cerrado si y solo si $A = \mathrm{Cl}(A)$, por lo que basta con probar que $C = \mathrm{Cl}(C)$. Sabemos por una proposición anterior que si $A$ es conexo, entonces cualquier conjunto $B$ con $A \subset B \subset \mathrm{Cl}(A)$ es conexo.
+    En particular, si tomamos $A = C$ y $B = \mathrm{Cl}(C)$, entonces el teorema nos dice que $\mathrm{Cl}(C)$ es conexo. Pero por la definición de maximalidad de $C$, tenemos que no puede existir ningún conjunto conexo que contenga a $C$ y sea más grande que él. Por tanto, tenemos que $\mathrm{Cl}(C)$ es conexo y que $C \subset \mathrm{Cl}(C)$, por lo que se ha de dar necesariamente que $C = \mathrm{Cl}(C)$, es decir, $C$ es cerrado.
 \end{proof}
 \begin{proposición}
     Si $A \subset X$ es no vacío, conexo, abierto y cerrado, entonces $A$ es una componente conexa de $X$.
 \end{proposición}
 \begin{proof}
-    Como $A$ es no vacío, se ha de dar que existe una componente conexa tal que $A \subset C$. Pero supongamos que $A \neq C$. Esto implicaría que existe $y \in C$ pero $y \notin A$. Entonces podemos escribir $C$ como una separción basada en el conjunto $A$: 
-    $$C = (C \cap A) \cup (C \cap X^{c})$$
-    Como $A \subset C$ entonces $C \cap A = A$. Como $A$ es clopen, entonces $A^c$ también lo es. Por lo que en la topología relativa de $C$, los conjuntos $A$ y $C \cap A^c$ son también abiertos (por ser intersecciones de $C$ con abiertos de $X$). Es decir, hemos conseguido escribir $C$ como la uniçon de dos conjuntos abiertos disjuntos y no vacíos. sto implicaría que $C$ es disconexo, lo que contradice la hipótesis de que $C$ es una componente conexa. Por tanto, $A = C$, es decir, $A$ es una componente conexa de $X$.
+    Como $A$ es no vacío, se ha de dar que existe una componente conexa tal que $A \subset C$. Pero supongamos que $A \neq C$. Esto implicaría que existe $y \in C$ pero $y \notin A$. Entonces podemos escribir $C$ como una separación basada en el conjunto $A$:
+    $$C = (C \cap A) \cup (C \cap A^{c})$$
+    Como $A \subset C$ entonces $C \cap A = A$. Como $A$ es clopen, entonces $A^c$ también lo es. Por lo que en la topología relativa de $C$, los conjuntos $A$ y $C \cap A^c$ son también abiertos (por ser intersecciones de $C$ con abiertos de $X$). Es decir, hemos conseguido escribir $C$ como la unión de dos conjuntos abiertos disjuntos y no vacíos. Esto implicaría que $C$ es disconexo, lo que contradice la hipótesis de que $C$ es una componente conexa. Por tanto, $A = C$, es decir, $A$ es una componente conexa de $X$.
 \end{proof}
 \ejemplo{
     Calcúlense las componentes conexas de los siguientes espacios:
@@ -270,7 +270,7 @@
     Todo cociente de un conexo por caminos es conexo por caminos.
 \end{corolario}
 \begin{proof}
-    Sea $X$ un espacio conexo por caminos y $X/\sim$ un cociente de $X$. Entonces, por definición de cociente, existe una aplicación continua y sobreyectiva $f \to X/\sim$ tal que $f(x) = [x]$ para cada $x \in X$. Por la proposición anterior, $X/\sim$ es conexo por caminos.
+    Sea $X$ un espacio conexo por caminos y $X/\sim$ un cociente de $X$. Entonces, por definición de cociente, existe una aplicación continua y sobreyectiva $f: X \to X/\sim$ tal que $f(x) = [x]$ para cada $x \in X$. Por la proposición anterior, $X/\sim$ es conexo por caminos.
 \end{proof}
 \begin{proposición}
     Para $n \geq 1$, $\R^{n+1} \setminus \{0\}$ es conexo por caminos y, como consecuencia, también lo son la esfera $\mathbb{S}^n$ y el espacio proyectivo $\R P^n$.
@@ -364,20 +364,38 @@
     Sea $C(x) = \{y \in X \mid \text{existe un camino en } X \text{ de } x \text{ a } y\}$. Veamos que $C(x)$ es conexo por caminos: Dados $y_1, y_2 \in C(x)$, existen caminos $\varphi_1 \colon \mathbb{I} \to X$ de $x$ a $y_1$ y $\varphi_2 \colon \mathbb{I} \to X$ de $x$ a $y_2$. Entonces por yuxtaposición el camino $\alpha = \overline{\varphi_1} \cdot \varphi_2$ es un camino de $y_1$ a $y_2$, por lo que $C(x)$ es conexo por caminos \\
     Ahora veamos la maximalidad de $C(x)$: Sea $A \subset X$ cualquier subconjunto conexo por caminos tal que $x \in A$. Sea $a \in A$, como $A$ es conexo por caminos y $x, a \in A \implies$ existe un camino $\varphi \colon \mathbb{I} \to A$ de $x$ a $a$. Como la imagen del camino está en $A \subset X$ entonces $\varphi$ es un camino en $X$ que une a $x$ con $a$. Por la definiciónd e clase de equivalencia esto significa que $a \in C(x)$. Como esto se cumple para todo $a \in A$ concluimos que $A \subset C(x)$. 
 \end{proof}
-\begin{corolario}
+\begin{corolario} [Unicidad de la componente conexa por caminos]
     Cualquier subconjunto conexo por caminos no vacío de $X$ está contenido en una única componente conexa por caminos de $X$.
 \end{corolario}
 \begin{proof}
-    % TODO
+    Supongamos que $A \subset X$ es un subconjunto conexo por caminos no vacío y que $A$ está contenido en dos componentes conexas por caminos distintas, $C_1$ y $C_2$. Si $C_1$ y $C_2$ son distintas, entonce debe existir $z \in C_1$ tal que $z \notin C_2$. \\
+    Como $A$ no es vacío, podemos tomar un punto de $a \in A$. Dado que $A \subset C_1$ y $A \subset C_2$, se tiene que $a \in C_1$ y $a \in C_2$. \\
+    Como $C_1$ es conexa por caminos y contiene tanto a $a$ y $z$, existe un camino $\varphi \colon \mathbb{I} \to C_1$ de $a$ a $z$. \\
+    Ahora bien, $a \in C_2$. Como existe un camino entre $a$ y $z$, el conjunto $C_2 \cup \{z\}$ sigue siendo conexo por caminos. Pero por definición, las componentes conexas por caminos son maximales, lo que obliga a que cualquier punto conectado por un camino a $C_2$ deba pertenecer a $C_2$. Por tanto $z \in C_2$ e implica que $C_1$ y $C_2$ no pueden ser distintas, lo que demuestra que $A$ está contenido en una única componente conexa por caminos. 
 \end{proof}
+\begin{definición}[Conjunto de componentes conexas por caminos]
+    Se denota por $\pi_0(X)$ al conjunto de las componentes conexas por caminos de un espacio topológico $X$.
+\end{definición}
 \begin{definición}[Función $\pi_0$]
-    Denotando por $\pi_0(X)$ al conjunto de las componentes conexas por caminos de $X$ y siendo $f \colon X \to Y$ una aplicación continua, se define $\pi_0(f) \colon \pi_0(X) \to \pi_0(Y)$ tomando $\pi_0(f)(c)$, para cada $c \in \pi_0(X)$, como la única componente conexa por caminos de $Y$ que contiene a $f(c)$.
+    Sea $\pi_0(X)$ el ocnjunto de componentes conexas por caminos de $X$, donde $[x]$ denota la componente conexa que contiene a $x \in X$. Dada una aplicación continua, $f: X \to Y$, se define la aplicación inducida $\pi_0(f): \pi_0(X) \to \pi_0(Y)$ por
+    \[
+    \pi_0(f)([x]) = [f(x)] \quad \text{para cada } x \in X
+    \]
 \end{definición}
 \begin{proposición}
     Si $f \colon X \to Y$ es un homeomorfismo, entonces $\pi_0(f) \colon \pi_0(X) \to \pi_0(Y)$ es biyectiva y, para cada $c \in \pi_0(X)$, $\pi_0(f)(c)$ es homeomorfa a $c$.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Veamos las dos partes:
+    \begin{itemize}
+        \item $\pi_0(f)$ es biyectiva: Como $f$ es homeomorfismo, existe $g = f^{-1} \colon Y \to X$ continua tal que $g \circ f = \mathrm{id}_X$ y $f \circ g = \mathrm{id}_Y$. Veamos que $\pi_0(g)$ es la inversa de $\pi_0(f)$:
+        \begin{itemize}
+            \item $\pi_0(g) \circ \pi_0(f)([x]) = \pi_0(g)([f(x)]) = [g(f(x))] = [x]$, luego $\pi_0(g) \circ \pi_0(f) = \mathrm{id}_{\pi_0(X)}$.
+            \item $\pi_0(f) \circ \pi_0(g)([y]) = \pi_0(f)([g(y)]) = [f(g(y))] = [y]$, luego $\pi_0(f) \circ \pi_0(g) = \mathrm{id}_{\pi_0(Y)}$.
+        \end{itemize}
+        Por tanto, $\pi_0(f)$ es biyectiva.
+        \item Para cada $c \in \pi_0(X)$, $\pi_0(f)(c)$ es homeomorfa a $c$: Sea $c = [x_0]$ una componente conexa por caminos de $X$. La imagen $f(c)$ es un subconjunto conexo por caminos de $Y$ (por ser imagen continua de un conexo por caminos), y $f(x_0) \in f(c)$, luego $f(c) \subset [f(x_0)] = \pi_0(f)(c)$. Análogamente, $g(\pi_0(f)(c)) = g([f(x_0)])$ es conexo por caminos y contiene a $g(f(x_0)) = x_0$, luego $g(\pi_0(f)(c)) \subset [x_0] = c$, lo que implica $\pi_0(f)(c) \subset f(c)$. Por tanto $f(c) = \pi_0(f)(c)$. Entonces la restricción $f|_c \colon c \to f(c)$ es continua y biyectiva, con inversa continua $g|_{f(c)} \colon f(c) \to c$, luego $c$ y $\pi_0(f)(c)$ son homeomorfas.
+    \end{itemize}
 \end{proof}
 \begin{observación}
     El cardinal de $\pi_0(X)$ es un nuevo invariante topológico.
@@ -387,12 +405,14 @@
 }
 
 \subsection{Conexidad local}
-
-\begin{definición}[Localmente conexo y localmente conexo por caminos]
-    Un espacio topológico $X$ es \textbf{localmente conexo en el punto} $x \in X$ cuando existe una base local en $x$ constituida por vecindades conexas. El espacio es \textbf{localmente conexo} cuando lo es en todo punto.
-
-    Igualmente, se dice que $X$ es \textbf{localmente conexo por caminos en el punto} $x \in X$ cuando exista una base local en $x$ constituida por vecindades conexas por caminos, y se dice que $X$ es \textbf{localmente conexo por caminos} cuando lo es en todo punto.
+\begin{definición}[Localmente conexo]
+    Un espacio topológico $X$ es \textbf{localmente conexo} si, para cada punto $x \in X$ existe una base local formada por vecindades (abiertos que contienen a $x$) conexas.
 \end{definición}
+
+\begin{definición}[Localmente conexo por caminos]
+    Un espacio topológico $X$ es \textbf{localmente conexo por caminos} si, para cada punto $x \in X$ existe una base local formada por vecindades (abiertos que contienen a $x$) conexas por caminos.    
+\end{definición}
+
 \ejemplo{
     Algunos ejemplos: $P' = ([0, 1] \times \{0\}) \cup (\{1/n \mid n \in \N\} \times [0, 1]) \cup \{(0, 1/n) \mid n \in \N)\}$, $\N$ con la cofinita, $L = [0, 1] \times [0, 1]$ con la topología de la orden lexicográfica.
 }
@@ -405,7 +425,17 @@
     \end{enumerate}
 \end{teorema}
 \begin{proof}
-    % TODO
+    $a) \Rightarrow b)$: Supongamos que $X$ es localmente conexo, es decir, 
+    $$\forall x \in X, \exists \mathcal{B}_x \text{ base local de } x \text{ formada por abiertos conexos}.$$
+    Sea $U \subset X$ un abierto de $X$, y sea $C$ una componente conexa de $U$. Dado un punto $x \in C$, como $C \subset U$, entonces $x \in U$. Al ser $U$ un aberto, por la definición de base local, existe un abierto conexo $B_x \in \mathcal{B}_x$ tal que $x \in B_x \subset U$. \\
+    Como $B_x$ es un conjunto conexo, está contenido en $U$ y contiene a $x$, la maximalidad de la componente conexa $C$ obliga a que $B_x \subset C$. Podemos deducir entonces que
+    $$C = \bigcup_{x \in C} B_x$$
+    Por tanto $C$ es unión de abiertos de $X$, luego $C$ es abierto en $X$.\\
+    $a) \Rightarrow c)$: Supongamos que $X$ es localmente conexo, es decir,
+    $$\forall x \in X, \exists \mathcal{B}_x \text{ base local de } x \text{ formada por abiertos conexos}.$$
+    Entonces, si definimos $\mathcal{B} = \bigcup_{x \in X} \mathcal{B}_x$, se tiene que $\mathcal{B}$ es una base de la topología de $X$ formada por abiertos conexos.\\
+    $b) \Rightarrow a)$: Supongamos que las componentes conexas de cualquier abierto de $X$ son abiertas en $X$. Dado un punto $x \in X$ y un abierto $U$ con $x \in U$, sea $C_x$ la componente conexa de $U$ que contiene a $x$. Por hipótesis, $C_x$ es abierto en $X$. Además, $C_x$ es conexo por ser una componente conexa, y $x \in C_x \subset U$. Por tanto, la familia de todas las componentes conexas de los abiertos que contienen a $x$ forma una base local de entornos conexos de $x$, lo que prueba que $X$ es localmente conexo.\\
+    $c) \Rightarrow a)$: Supongamos que la topología de $X$ tiene una base $\mathcal{B}$ constituida por conjuntos conexos. Dado $x \in X$ y un entorno abierto $U$ de $x$, como $\mathcal{B}$ es base, existe $B \in \mathcal{B}$ con $x \in B \subset U$, y $B$ es conexo por hipótesis. Por tanto, $\{B \in \mathcal{B} : x \in B\}$ es una base local de entornos conexos de $x$.
 \end{proof}
 \begin{corolario}
     En un espacio localmente conexo [por caminos]:
@@ -415,13 +445,23 @@
     \end{enumerate}
 \end{corolario}
 \begin{proof}
-    % TODO
+    Veamos cada una de las proposiciones enunciadas: 
+    \begin{itemize}
+        \item Para probar que el conjunto de los abiertos conexos constituyen una base, tenemos que:
+        \begin{itemize}
+            \item La unión de todos los abiertos conexos es $X$: Dado que $X$ es localmente conexo, tenemos que, dado $x \in X$, existe un abierto conexo $B_x \in \mathcal{B}_x$, tal que $x \in B_x$. Por tanto, $X = \bigcup_{x \in X} B_x$ es la unión de abiertos conexos.
+            \item Sean $U, W$ abiertos conexos tales que $U \cap W \neq \emptyset$, por lo que dado $x \in U \cap W$, dado que es $X$ es localmente conexo, existe un abierto conexo $B_x \in \mathcal{B}_x$ tal que $x \in B_x \subset U \cap W$. Por tanto, $B_x$ es un abierto conexo tal que $x \in B_x \subset U \cap W$, lo que prueba que el conjunto de los abiertos conexos constituye una base.
+        \end{itemize}
+        \item Las componentes conexas siempre son cerradas. Queda ver que si $X$ es localmente conexo, entonces las componentes conexas son abiertas. Dado un abierto $U \subset X$, sea $x \in U$ y $C$ la componente conexa de $U$ que contiene a $x$. Por hipótesis existe $B_x \in \mathcal{B}_x$ tal que $x \in B_x \subset U$. Como $B_x$ es conexo, entonces $B_x \subset C$. Como para cada punto de $C$ hemos encontrado un entorno abierto del mismo, tenemos que $C$ es abierto. 
+
+    \end{itemize}
 \end{proof}
 \begin{proposición}
     En un espacio localmente conexo por caminos las componentes conexas por caminos coinciden con las componentes conexas.
 \end{proposición}
 \begin{proof}
-    % TODO
+    Dado un espacio $X$ que es localmente conexo por caminos, veamos ambas inclusiones:
+
 \end{proof}
 \begin{corolario}
     Un espacio conexo y localmente conexo por caminos es conexo por caminos.
@@ -444,7 +484,7 @@
     \end{enumerate}
 }
 \begin{proposición}
-    Todo subespazo abierto de un localmente conexo [por caminos] es localmente conexo [por caminos].
+    Todo subespacio abierto de un localmente conexo [por caminos] es localmente conexo [por caminos].
 \end{proposición}
 \begin{proof}
     % TODO

@@ -11,7 +11,7 @@
     Sea $(X, \tau)$ un espacio topológico, $\mathcal{U} = \{A_i : i \in I\}$ un recubrimiento de $X$ si los $A_i$ son todos abiertos, es decir, $\mathcal{U} \subset \tau$, se dice entonces que $\mathcal{U}$ es un recubrimiento abierto de $(X, \tau)$.
 \end{definición}
 \begin{definición}[Compacto]
-    Un espacio topológico $(X, \tau)$ es compacto si todo recubrimiento abierto de $(X, \tau)$ adimite un recubrimiento finito, es decir, 
+    Un espacio topológico $(X, \tau)$ es compacto si todo recubrimiento abierto de $(X, \tau)$ admite un subrecubrimiento finito, es decir, 
     $$\forall \mathcal{U} \subset \tau : \bigcup \mathcal{U} = X, \exists \mathcal{V} \subset \mathcal{U} \text{ finito } : \bigcup \mathcal{V} = X.$$   
 \end{definición}
 \ejemplo{Algunos ejemplos son las topologías finitas, discretas, la de Kolmogorov, la cofinita, etc.}
@@ -201,7 +201,7 @@
     Supongamos por contradicción que existe un subconjunto infinito $A \subset X$ tal que $A$ no tiene ningún punto de acumulación en $X$. Esto significa que 
     $$\forall x \in A, \exists U_x \in \tau : x \in U_x \implies (U_x \setminus \{x\}) \cap A = \emptyset \implies U_x = \{x\} \text{a lo sumo}$$
     Entonces, la familia de conjuntos $\{U_x : x \in X\}$ es un recubrimiento abierto de $X$, y como $X$ es compacto, existe un recubrimiento finito $\{U_{x_1}, U_{x_2}, \ldots, U_{x_n}\}$ que recubre a $X$. Por lo tanto, 
-    $$A = A \cap X = A \cap \left(\bigcup_{i = n} U_{x_i}\right) = \bigcup_{i = n} (A \cap U_{x_i})$$
+    $$A = A \cap X = A \cap \left(\bigcup_{i = 1}^{n} U_{x_i}\right) = \bigcup_{i = 1}^{n} (A \cap U_{x_i})$$
     lo que implica que $A$ es finito, lo que contradice la hipótesis de que $A$ es infinito. Por lo tanto, todo subconjunto infinito de $X$ tiene un punto de acumulación en $X$.
 \end{proof}
 \begin{observación}
@@ -266,7 +266,7 @@
     Por lo tanto, de este recubrimiento de $B$ no podemos obtener ninguna colección finita de conjuntos ya que existen infinitos numeros reales en el conjunto real de $[1,2]$. 
 }
 \begin{definición}[Subespacio compacto]
-    Sean $X$ un espacio topológico y $A \subset X$ un subespacio de $X$. Decimos que $A$ es un subespacio compacto si esl espacio topológico $(A, \tau_A)$ es compacto donde $\tau_A = \{A \cap U : U \in \tau\}$ es la topología relativa de $A$.
+    Sean $X$ un espacio topológico y $A \subset X$ un subespacio de $X$. Decimos que $A$ es un subespacio compacto si el espacio topológico $(A, \tau_A)$ es compacto donde $\tau_A = \{A \cap U : U \in \tau\}$ es la topología relativa de $A$.
 \end{definición}
 \begin{proposición}
     Dado $Y \subset X$ es un subespacio compacto de $(X, \tau)$ si y sólo si todo recubrimiento de $Y$ por abiertos de $X$ admite un recubrimiento finito. Es decir,
@@ -448,11 +448,11 @@
 \end{corolario}
 \begin{definición}[Primero numerable]
     Un espacio topológico $(X, \tau)$ es primero numerable si cada punto $x \in X$ tiene una base numerable de entornos.
-\end{definición}\
+\end{definición}
 \begin{definición}[Segundo numerable]
     Un espacio topológico $(X, \tau)$ es segundo numerable si tiene una base numerable para su topología.
 \end{definición}
-\begin{definición}[ESpacio de Lindelöf]
+\begin{definición}[Espacio de Lindelöf]
     Un espacio topológico $(X, \tau)$ es un espacio de Lindelöf si todo recubrimiento abierto de $X$ admite un subrecubrimiento numerable. Es decir, 
     $$\forall \mathcal{U} \subset \tau : X \subset \bigcup \mathcal{U} \Rightarrow \exists \mathcal{V} \subset \mathcal{U} \text{ numerable } : X \subset \bigcup \mathcal{V}$$
     
@@ -461,7 +461,7 @@
     Si $X$ es un espacio topológico segundo numerable, todo recubrimiento abierto de $X$ admite un subrecubrimiento numerable.
 \end{teorema}
 \begin{proof}
-    Sea $\mathcal{B} = \{B_n\}_{n \in \mathbb{N}}$ una base numerable de $\tau$, y sea $\{U_i\}_{i \in \mathcal{I}}$ un recubrimiento abierto de $X$. Para cada $x in X$ existe algún $U_i$ con $x \in U_i$. Como $\mathcal{B}$ es una base, existe algún $B_n$ tal que $x \in B_n \subset U_i$. Definamos 
+    Sea $\mathcal{B} = \{B_n\}_{n \in \mathbb{N}}$ una base numerable de $\tau$, y sea $\{U_i\}_{i \in \mathcal{I}}$ un recubrimiento abierto de $X$. Para cada $x \in X$ existe algún $U_i$ con $x \in U_i$. Como $\mathcal{B}$ es una base, existe algún $B_n$ tal que $x \in B_n \subset U_i$. Definamos 
     $$\mathcal{J} = \{n \in \mathbb{N} : \exists i \in \mathcal{I} : B_n \subset U_i\}$$
     Entonces $\{B_n : n \in \mathcal{J}\}$ es un recubrimiento abierto de $X$ formado por elementos de la base. Además, $\mathcal{J} \subset \mathbb{N}$ por lo que como máximo es numerable. \\
     Para cada $n \in \mathcal{J}$ elegimos un $i(n) \in \mathcal{I}$ tal que $B_n \subset U_{i(n)}$. Entonces, 

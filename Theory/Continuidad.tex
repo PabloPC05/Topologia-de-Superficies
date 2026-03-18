@@ -1,0 +1,170 @@
+﻿\section{Continuidad}
+
+% Capítulo 7: Aplicaciones continuas
+
+\subsection{Continuidad de una aplicación}
+
+\begin{definición}[Continuidad en espacios topológicos]
+    Sean $(X, \tau_X)$ e $(Y, \tau_Y)$ espacios topológicos y sea $f: X \to Y$. Decimos que $f$ es \textbf{continua en} $x_0 \in X$ si para todo entorno abierto $V$ de $f(x_0)$ existe un entorno abierto $U$ de $x_0$ tal que $f(U) \subset V$.
+
+    Diremos que $f$ es \textbf{continua} si lo es en todo punto de $X$.
+\end{definición}
+
+\ejemplo{Las aplicaciones constantes y la aplicación identidad $\mathrm{id}_X: X \to X$ son continuas.}
+
+\begin{teorema}[Caracterización por preimagen de abiertos]
+    Una aplicación $f: X \to Y$ es continua si y sólo si para todo abierto $V \in \tau_Y$ se cumple que $f^{-1}(V) \in \tau_X$.
+\end{teorema}
+\begin{proof}
+    $(\Rightarrow)$ Si $f$ es continua y $x \in f^{-1}(V)$, entonces $f(x) \in V$. Como $V$ es entorno abierto de $f(x)$, existe un entorno abierto $U_x$ de $x$ tal que $f(U_x) \subset V$, esto es, $U_x \subset f^{-1}(V)$. Luego $f^{-1}(V)$ es abierto.
+
+    $(\Leftarrow)$ Si para todo abierto $V$ de $Y$ la preimagen es abierta en $X$, entonces dado $x_0 \in X$ y un entorno abierto $V$ de $f(x_0)$, el conjunto $U=f^{-1}(V)$ es abierto, contiene a $x_0$ y satisface $f(U)\subset V$.
+\end{proof}
+
+\begin{proposición}[Caracterización por cerrados]
+    $f: X \to Y$ es continua si y sólo si la preimagen de todo cerrado de $Y$ es un cerrado de $X$.
+\end{proposición}
+
+\begin{proposición}
+    Si $f: X \to Y$ es continua, entonces para todo $A \subset X$ se cumple
+    $$f(\mathrm{Cl}(A)) \subset \mathrm{Cl}(f(A)).$$
+\end{proposición}
+
+\subsection{Topología relativa y restricciones}
+
+\begin{definición}[Topología relativa]
+    Sea $(X,\tau_X)$ y $A\subset X$. La topología relativa sobre $A$ es
+    $$\tau_A = \{U\cap A : U\in \tau_X\}.$$
+\end{definición}
+
+\begin{lema}
+    Si $A$ es subespacio de $X$, la inclusión $i_A:A\hookrightarrow X$ es continua.
+\end{lema}
+
+\begin{proposición}
+    \begin{enumerate}
+        \item Si $f:X\to Y$ y $g:Y\to Z$ son continuas, entonces $g\circ f:X\to Z$ es continua.
+        \item Si $f:X\to Y$ es continua y $A\subset X$ es subespacio, entonces la restricción $f|_A:A\to Y$ es continua.
+    \end{enumerate}
+\end{proposición}
+
+% Capítulo 8: Continuidad (cont.)
+
+\subsection{El codominio no es esencial}
+
+\begin{proposición}
+    Sean $X, Y$ espacios topológicos y sea $B \subset Y$ un subespacio. Si $f: X \to Y$ es continua y $f(X) \subset B$, entonces la aplicación $f: X \to B$ es continua.
+\end{proposición}
+\begin{proof}
+    Sea $W$ abierto en $B$. Existe $U$ abierto de $Y$ con $W=U\cap B$. Entonces
+    $$(f: X\to B)^{-1}(W)=f^{-1}(U\cap B)=f^{-1}(U),$$
+    que es abierto en $X$ por continuidad de $f: X\to Y$.
+\end{proof}
+
+\begin{observación}
+    Recíprocamente, si $f: X\to B$ es continua y $i_B:B\hookrightarrow Y$ es la inclusión, entonces $i_B\circ f: X\to Y$ es continua.
+\end{observación}
+
+\subsection{Función combinada}
+
+\begin{proposición}[Pasting lemma para cerrados]
+    Sea $X=F_1\cup F_2$ con $F_1,F_2$ cerrados en $X$. Sean $f_i:F_i\to Y$ continuas y supongamos que coinciden en $F_1\cap F_2$. Entonces la función combinada $f:X\to Y$ es continua.
+\end{proposición}
+\begin{proof}
+    Para cada cerrado $C\subset Y$ se tiene
+    $$f^{-1}(C)=f_1^{-1}(C)\cup f_2^{-1}(C),$$
+    unión de dos cerrados de $X$.
+\end{proof}
+
+\begin{proposición}
+    Sea $U\subset X$ abierto y $f:X\to Y$. Si la restricción $f|_U:U\to Y$ es continua, entonces $f$ es continua en todo punto de $U$.
+\end{proposición}
+
+\begin{proposición}[Continuidad local]
+    Si $\{U_i\}_{i\in I}$ es un recubrimiento abierto de $X$ y cada restricción $f|_{U_i}$ es continua, entonces $f:X\to Y$ es continua.
+\end{proposición}
+
+% Capítulo 9: Homeomorfismos
+\subsection{Homeomorfismos}
+
+La Topología estudia propiedades que quedan invariantes por deformaciones continuas reversibles. En estas transformaciones no permitimos que puntos próximos se separen (continuidad) y tampoco que puntos separados se peguen. Además, las transformaciones deben ser reversibles.
+
+\begin{definición}[Homeomorfismo]
+    Un \textbf{homeomorfismo} entre dos espacios topológicos es una aplicación $f: X \to Y$ que cumple:
+    \begin{enumerate}
+        \item $f$ es continua.
+        \item $f$ es biyectiva.
+        \item La inversa $f^{-1}: Y \to X$ también es continua.
+    \end{enumerate}
+    Si existe un homeomorfismo entre $X$ e $Y$, escribimos $X \cong Y$ y decimos que son \textbf{homeomorfos}. Son indistinguibles desde el punto de vista de la Topología.
+\end{definición}
+
+\ejemplo{
+    La recta real $X = \mathbb{R}$ y el intervalo abierto $Y = (-1, +1)$ son homeomorfos, mediante $f(x) = \frac{x}{1 + |x|}$, que es continua y biyectiva con inversa $f^{-1}(y) = \frac{y}{1 - |y|}$, también continua.
+}
+
+\ejemplo{
+    La circunferencia $S^1 = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 = 1\}$ es homeomorfa a la elipse $E = \{(x,y) : \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\}$ mediante $f(x,y) = (ax, by)$, con inversa $f^{-1}(X,Y) = (X/a, Y/b)$.
+}
+
+\begin{definición}[Propiedad topológica]
+    Una propiedad es \textbf{topológica} si se conserva por homeomorfismos.
+\end{definición}
+
+\begin{observación}
+    Una propiedad topológica permite demostrar que dos espacios \emph{no} son homeomorfos. Por ejemplo:
+    \begin{itemize}
+        \item $\mathbb{R}$ y $\mathbb{R}^2$ no son homeomorfos (lo veremos con la conexidad: retirar un punto de $\mathbb{R}$ lo desconecta, pero no ocurre en $\mathbb{R}^2$).
+        \item $\mathbb{R}$ no es homeomorfo a $[0,1]$ porque $\mathbb{R}$ no es compacto y $[0,1]$ sí lo es (Heine-Borel).
+        \item En Topología no hay diferencia entre una taza de café y una rosquilla (ambas son homeomorfas, tienen un agujero).
+    \end{itemize}
+\end{observación}
+
+% Capítulo 10: Aplicaciones abiertas y cerradas
+
+\subsection{Aplicaciones abiertas}
+
+\begin{definición}[Aplicación abierta]
+    Una aplicación $f: X \to Y$ entre espacios topológicos es \textbf{abierta} si la imagen directa de cualquier abierto $U$ en $X$ es un abierto en $Y$:
+    $$U \in \tau_X \Rightarrow f(U) \in \tau_Y.$$
+\end{definición}
+
+\ejemplo{
+    La proyección $\pi: \mathbb{R}^2 \to \mathbb{R}$ dada por $\pi(x,y) = x$ es abierta. Para ver esto, basta verificarlo en las bolas abiertas: $\pi(B((x_0, y_0), \varepsilon)) = (x_0 - \varepsilon, x_0 + \varepsilon)$, que es un intervalo abierto. Un abierto arbitrario es unión de bolas, y la imagen directa respeta las uniones.
+}
+
+\begin{proposición}
+    Una aplicación $f: X \to Y$ biyectiva y continua es un homeomorfismo si y sólo si $f$ es abierta.
+\end{proposición}
+\begin{proof}
+    Basta comprobar que $f^{-1}: Y \to X$ es continua. Si $U$ es abierto en $X$, entonces $(f^{-1})^{-1}(U) = f(U)$. Si $f$ es abierta, $f(U)$ es abierto en $Y$, lo que prueba la continuidad de $f^{-1}$.
+\end{proof}
+
+\begin{observación}[Cuidado con la notación]
+    Si $f: X \to Y$ es una aplicación cualquiera, $f^{-1}(V)$ denota la \textbf{imagen recíproca} del conjunto $V \subset Y$. Si además $f$ es biyectiva, $f^{-1}: Y \to X$ denota la \textbf{aplicación inversa}. La fórmula $(f^{-1})^{-1}(U) = f(U)$ indica que la imagen recíproca de $U$ por $f^{-1}$ (como imagen recíproca) es la imagen directa de $U$ por $f$.
+\end{observación}
+
+\subsection{Aplicaciones cerradas}
+
+\begin{definición}[Aplicación cerrada]
+    Una aplicación $f: X \to Y$ es \textbf{cerrada} si la imagen directa de cualquier cerrado en $X$ es un cerrado en $Y$.
+\end{definición}
+
+\begin{proposición}
+    Una aplicación $f: X \to Y$ biyectiva y continua es un homeomorfismo si y sólo si $f$ es cerrada.
+\end{proposición}
+\begin{proof}
+    La imagen recíproca de un cerrado $F \subset X$ por $f^{-1}$ es $(f^{-1})^{-1}(F) = f(F)$. Si $f$ es cerrada, $f(F)$ es cerrado, luego $f^{-1}$ es continua.
+\end{proof}
+
+\subsection{Contraejemplos}
+
+\ejemplo{
+    Una aplicación puede ser abierta sin ser cerrada. La proyección $\pi: \mathbb{R}^2 \to \mathbb{R}$ es abierta (vista anteriormente), pero no es cerrada: consideramos la gráfica del la función $y = \frac{x^2}{1-x^2}$ para $-1 < x < 1$, que es un cerrado de $\mathbb{R}^2$, pero su imagen por $\pi$ es el intervalo $(-1, 1)$, que no es cerrado en $\mathbb{R}$.
+}
+
+\ejemplo{
+    Una aplicación continua biyectiva puede \emph{no} ser un homeomorfismo. Dadas las topologías usual y discreta en $X = \mathbb{R}$, la identidad $\mathrm{id}: (\mathbb{R}, \tau_{\text{disc}}) \to (\mathbb{R}, \tau_{\text{usual}})$ es continua (pues $\tau_{\text{usual}} \subset \tau_{\text{disc}}$) y biyectiva, pero no es abierta y por tanto no es un homeomorfismo.
+
+    Más en general, si $\tau \subsetneq \tau'$, la identidad $\mathrm{id}: (X, \tau') \to (X, \tau)$ es continua, biyectiva, pero no homeomorfismo.
+}
